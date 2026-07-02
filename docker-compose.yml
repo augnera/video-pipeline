@@ -1,0 +1,51 @@
+# AI 带货视频流水线 - 模型服务
+# 用法: docker compose up -d
+# 注意: 镜像 tag 可能随社区更新变化, 拉取失败时去对应仓库查看最新 tag
+
+services:
+  # ---- 语音层: GPT-SoVITS (声音克隆 TTS, 支持粤语/普通话) ----
+  # 项目: https://github.com/RVC-Boss/GPT-SoVITS
+  gpt-sovits:
+    image: breakstring/gpt-sovits:latest
+    container_name: gpt-sovits
+    restart: unless-stopped
+    ports:
+      - "9880:9880"   # api_v2 推理接口
+      - "9874:9874"   # WebUI (训练/克隆音色用)
+    volumes:
+      - ./models/gpt-sovits:/workspace/models      # 训练好的音色模型
+      - ./voice-ref:/workspace/voice-ref            # 参考音频 (5-10秒干净人声)
+    environment:
+      - is_half=true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    # 容器默认启动 WebUI; 克隆好音色后改用 api_v2:
+    # command: python api_v2.py -a 0.0.0.0 -p 9880
+
+  # ---- 字幕层: faster-whisper (OpenAI 兼容接口) ----
+  # 项目: https://github.com/speaches-ai/speaches (原 faster-whisper-server)
+  whisper:
+    image: ghcr.io/speaches-ai/speaches:latest-cuda
+    container_name: whisper
+    restart: unless-stopped
+    ports:
+      - "8080:8000"
+    volumes:
+      - ./models/whisper:/home/ubuntu/.cache/huggingface
+    environment:
+      - WHISPER__MODEL=Systran/faster-whisper-large-v3
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+# ComfyUI 建议原生安装而不是 Docker (装自定义节点方便得多),
+# 见 install-comfyui.sh

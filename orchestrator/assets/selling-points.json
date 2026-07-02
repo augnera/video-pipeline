@@ -1,0 +1,21 @@
+{
+  "product": "dseai.hk - DSE备考AI平台",
+  "audience": ["DSE考生(中四至中六)", "香港家长", "内地DSE备考家庭"],
+  "sellingPoints": [
+    {
+      "id": "essay-marking",
+      "feature": "AI作文即时批改",
+      "pain": "补习老师改一篇作文要等几日, 考前根本来不及练",
+      "proof": "30秒出详细评分和逐句修改建议",
+      "demoId": "essay-marking"
+    },
+    {
+      "id": "past-paper",
+      "feature": "Past paper智能讲解",
+      "pain": "做完past paper对答案, 错了都不知道错在哪",
+      "proof": "每道题AI逐步讲解, 定位知识漏洞",
+      "demoId": "past-paper"
+    }
+  ],
+  "compliance": "禁止承诺具体等级提升(如'保证5**'), 用'练得更多/反馈更快'类表述"
+}
