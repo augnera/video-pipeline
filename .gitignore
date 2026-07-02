@@ -1,0 +1,17 @@
+# 依赖与构建产物
+node_modules/
+dist/
+
+# 密钥 (C4: 不入库)
+.env
+
+# 生产产物 (文件系统即状态存储, 但不入库)
+orchestrator/output/*
+!orchestrator/output/.gitkeep
+
+# 大体积素材与模型 (docker 卷 / 人工放置)
+models/
+voice-ref/
+orchestrator/base/*.mp4
+
+*.log
