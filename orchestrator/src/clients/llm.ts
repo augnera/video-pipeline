@@ -25,6 +25,8 @@ export interface VideoScript {
   demoSteps: string[];
   ctaLine: string;
   subtitleKeywords: string[];
+  brollPrompt?: string; // Phase 3: B-roll 生成提示词
+  templateId?: string; // Phase 3: 合成模板ID, 默认 "standard-v"
 }
 
 const BASE = process.env.LLM_BASE_URL!;

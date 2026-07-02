@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { basename } from "node:path";
+import { serviceFetch } from "./http.js";
 
 const BASE = process.env.WHISPER_URL ?? "http://localhost:8080";
 
@@ -10,8 +11,7 @@ export async function transcribeToSrt(audioPath: string, srtPath: string): Promi
   form.append("response_format", "verbose_json");
   // 粤语音频建议加: form.append("language", "yue")  普通话: "zh"
 
-  const res = await fetch(`${BASE}/v1/audio/transcriptions`, { method: "POST", body: form });
-  if (!res.ok) throw new Error(`Whisper ${res.status}: ${await res.text()}`);
+  const res = await serviceFetch("Whisper", `${BASE}/v1/audio/transcriptions`, { method: "POST", body: form });
   const data = (await res.json()) as { segments: { start: number; end: number; text: string }[] };
 
   const srt = data.segments
