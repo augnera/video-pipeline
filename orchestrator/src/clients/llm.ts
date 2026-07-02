@@ -1,4 +1,6 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { resolve } from "node:path";
+import { serviceFetch } from "./http.js";
 
 /**
  * 通用 LLM 客户端 (OpenAI 兼容格式), 替换原 claude.ts
@@ -29,9 +31,12 @@ export interface VideoScript {
   templateId?: string; // Phase 3: 合成模板ID, 默认 "standard-v"
 }
 
-const BASE = process.env.LLM_BASE_URL!;
-const MODEL = process.env.LLM_MODEL!;
-const KEY = process.env.LLM_API_KEY!;
+function envConfig() {
+  const { LLM_BASE_URL, LLM_MODEL, LLM_API_KEY } = process.env;
+  if (!LLM_BASE_URL || !LLM_MODEL || !LLM_API_KEY)
+    throw new Error("LLM 未配置: 请在 .env 中设置 LLM_BASE_URL / LLM_MODEL / LLM_API_KEY (参考 .env.example)");
+  return { base: LLM_BASE_URL, model: LLM_MODEL, key: LLM_API_KEY };
+}
 
 export async function generateScripts(opts: {
   topic: string;
@@ -39,15 +44,34 @@ export async function generateScripts(opts: {
   lang: "yue" | "zh";
   count: number;
 }): Promise<VideoScript[]> {
+  const attempts: string[] = [];
+  // JSON 解析失败自动重试 1 次 (F1.1), 共两次请求机会
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    const text = await requestScripts(opts);
+    attempts.push(text);
+    const scripts = tryParseScripts(text);
+    if (scripts) return scripts;
+  }
+  const errFile = saveRawToErrors(attempts, opts);
+  throw new Error(`LLM 返回两次均无法解析为 JSON 数组, 原始返回已保存: ${errFile}`);
+}
+
+async function requestScripts(opts: {
+  topic: string;
+  hookType: string;
+  lang: "yue" | "zh";
+  count: number;
+}): Promise<string> {
+  const { base, model, key } = envConfig();
   const sellingPoints = readFileSync("assets/selling-points.json", "utf-8");
   const hooks = readFileSync("assets/hooks.json", "utf-8");
   const langName = opts.lang === "yue" ? "香港口语化粤语(书面粤文)" : "简体中文普通话";
 
-  const res = await fetch(`${BASE}/chat/completions`, {
+  const res = await serviceFetch(`LLM(${model})`, `${base}/chat/completions`, {
     method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${KEY}` },
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
     body: JSON.stringify({
-      model: MODEL,
+      model,
       messages: [
         {
           role: "system",
@@ -61,16 +85,35 @@ export async function generateScripts(opts: {
       temperature: 0.8,
     }),
   });
-  if (!res.ok) throw new Error(`LLM ${res.status}: ${await res.text()}`);
 
   const data = (await res.json()) as { choices: { message: { content: string } }[] };
-  const text = data.choices[0].message.content;
-  try {
-    return JSON.parse(text.replace(/```json|```/g, "").trim());
-  } catch {
-    // 重试一次: 部分国产模型偶尔会带解释文字, 截取首个JSON数组
-    const m = text.match(/\[[\s\S]*\]/);
-    if (m) return JSON.parse(m[0]);
-    throw new Error(`LLM返回无法解析为JSON, 原始内容已保存供排查:\n${text.slice(0, 500)}`);
+  return data.choices[0].message.content;
+}
+
+/** 先直接解析(去掉围栏), 失败则正则截取首个 JSON 数组兜底; 均失败返回 null */
+function tryParseScripts(text: string): VideoScript[] | null {
+  const candidates = [text.replace(/```json|```/g, "").trim()];
+  const m = text.match(/\[[\s\S]*\]/);
+  if (m) candidates.push(m[0]);
+  for (const c of candidates) {
+    try {
+      const parsed = JSON.parse(c);
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed as VideoScript[];
+    } catch {
+      /* 尝试下一个候选 */
+    }
   }
+  return null;
+}
+
+function saveRawToErrors(attempts: string[], opts: { topic: string; hookType: string }): string {
+  const dir = resolve("output/errors");
+  mkdirSync(dir, { recursive: true });
+  const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const file = `${dir}/llm-${stamp}.txt`;
+  const body = attempts
+    .map((t, i) => `===== 第 ${i + 1} 次请求原始返回 =====\n${t}`)
+    .join("\n\n");
+  writeFileSync(file, `主题: ${opts.topic} | hook: ${opts.hookType}\n\n${body}\n`);
+  return file;
 }
