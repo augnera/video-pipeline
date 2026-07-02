@@ -1,0 +1,10 @@
+{
+  "_readme": "ComfyUI 工作流配置 (F1.3)。file: API格式工作流JSON路径; inputs: 逻辑输入名 → '节点ID.inputs.字段' 映射, 导出 workflows/lipsync.json 后打开找到音频/视频输入节点ID填入; timeoutMs 可选, 默认600000(10分钟)。",
+  "lipsync": {
+    "file": "workflows/lipsync.json",
+    "inputs": {
+      "audio": "TODO: 填 音频输入节点ID.inputs.字段名, 如 12.inputs.audio",
+      "video": "TODO: 填 底板视频节点ID.inputs.字段名, 如 15.inputs.video"
+    }
+  }
+}

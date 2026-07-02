@@ -41,12 +41,8 @@ export async function runPipeline(opts: {
       // 2. 数字人对口型 (ComfyUI LatentSync 工作流)
       const head = await log.step("数字人对口型 (ComfyUI)", () =>
         runWorkflow({
-          workflowFile: "workflows/lipsync.json",
-          patches: {
-            // TODO(F1.3): 节点ID.inputs 映射将抽到 config/workflows.json
-            "节点ID.inputs.audio": resolve(audio),
-            "节点ID.inputs.video": resolve("base/talking-base.mp4"),
-          },
+          workflow: "lipsync",
+          inputs: { audio: resolve(audio), video: resolve("base/talking-base.mp4") },
           outPath: `${dir}/talking-head.mp4`,
         }),
       );
