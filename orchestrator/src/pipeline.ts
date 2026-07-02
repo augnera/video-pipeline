@@ -62,7 +62,7 @@ export async function runPipeline(opts: {
       const final = await log.step("视频合成 (ffmpeg)", () =>
         compose({
           screencast: screen, talkingHead: head, narrationAudio: audio,
-          srt, outPath: `${dir}/final.mp4`,
+          srt, outPath: `${dir}/final.mp4`, log,
         }),
       );
 
