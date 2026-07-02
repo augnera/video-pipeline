@@ -1,6 +1,6 @@
 import { mkdirSync, writeFileSync, appendFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
-import { generateScripts, type VideoScript } from "./clients/claude.js";
+import { generateScripts, type VideoScript } from "./clients/llm.js";
 import { tts } from "./clients/sovits.js";
 import { runWorkflow } from "./clients/comfyui.js";
 import { transcribeToSrt } from "./clients/whisper.js";
