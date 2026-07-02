@@ -1,0 +1,13 @@
+{
+  "_readme": "GPT-SoVITS 音色配置 (F1.2)。ref_audio_path 是容器内路径: 宿主机 voice-ref/ 挂载到容器 /workspace/voice-ref/ (见 docker-compose.yml)。prompt_text 必须是参考音频里逐字说的内容。",
+  "yue": {
+    "ref_audio_path": "/workspace/voice-ref/yue-ref.wav",
+    "prompt_text": "TODO: 填入粤语参考音频中实际说的那句话",
+    "prompt_lang": "yue"
+  },
+  "zh": {
+    "ref_audio_path": "/workspace/voice-ref/zh-ref.wav",
+    "prompt_text": "TODO: 填入普通话参考音频中实际说的那句话",
+    "prompt_lang": "zh"
+  }
+}
