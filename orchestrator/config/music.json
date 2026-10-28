@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "defaultBgmId": "BGM-01",
+  "defaultBgmPath": "local-assets/music/bgm/AI科技新时代1.mp3",
+  "confirmedBy": "holder",
+  "confirmedAt": "2026-10-28",
+  "source": "剪映历史常用音乐，持有人提供",
+  "licenseStatus": "pending_verification",
+  "usage": "私人本地试听；发布授权待核实",
+  "gainPolicy": "依据每次实际配音及选取音乐段响度计算，不将 Day9 固定音量当作通用默认",
+  "loopPolicy": {
+    "mode": "repeat",
+    "when": "music duration shorter than requested video/audio duration",
+    "sourceFileUnchanged": true
+  },
+  "defaultBgmSha256": "e1244055c4ef7ecb41f4b7901d3321846dc21fda0d53ecded90bca56f22ab806",
+  "defaultBgmDurationSeconds": 27.454667
+}

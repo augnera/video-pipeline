@@ -1,0 +1,28 @@
+{
+  "capturedAt": "2026-10-28",
+  "purpose": "Exact existing versions pinned, no install/upgrade",
+  "node": "v26.7.0",
+  "ffmpeg": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+  "browser": "Google Chrome for Testing 149.0.7827.55",
+  "orchestratorPackages": {
+    "fluent-ffmpeg": "2.1.3",
+    "playwright": "1.61.1",
+    "read-excel-file": "9.3.12",
+    "ws": "8.21.0",
+    "@types/fluent-ffmpeg": "2.1.28",
+    "@types/node": "22.20.0",
+    "@types/ws": "8.18.1",
+    "tsx": "4.22.4",
+    "typescript": "5.9.3"
+  },
+  "rendererPackages": {
+    "remotion": "4.0.539",
+    "react": "19.2.3",
+    "@remotion/renderer": "4.0.539",
+    "gl-transitions": "2.0.0"
+  },
+  "lockFiles": {
+    "orchestrator/package-lock.json": "d8665f39e45004e3e7b2edc461e06298021e60ff3017bf83a7d43a130814dfc8",
+    "experiments/gl-transitions-vp008/package-lock.json": "9b7d86104ce8c9e98d8b394885dc8791b33b669a13540f7267939331816bc483"
+  }
+}

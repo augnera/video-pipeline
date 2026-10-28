@@ -15,3 +15,35 @@ voice-ref/
 orchestrator/base/*.mp4
 
 *.log
+
+/local-assets/voice/
+
+# Routine production machine paths / local service configuration
+/orchestrator/config/production.local.json
+__pycache__/
+
+# Private source media, rendered staging, and local caches (never publish)
+/local-assets/
+/experiments/*/public/
+/experiments/**/.cache/
+/experiments/**/out/
+/experiments/**/src/generated/
+.env.*
+!.env.example
+*.local.json
+*.wav
+*.mp3
+*.m4a
+*.mp4
+*.webm
+*.mov
+*.mkv
+*.flac
+*.safetensors
+*.ckpt
+*.pth
+*.pt
+*.onnx
+*.gguf
+*.tsbuildinfo
+.DS_Store

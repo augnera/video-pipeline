@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AssetMatch Contract v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "projectId",
+    "episodeId",
+    "shotNumber",
+    "assetId",
+    "segmentStart",
+    "segmentEnd",
+    "matchReason",
+    "cropMode",
+    "matchStatus"
+  ],
+  "properties": {
+    "projectId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "episodeId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "shotNumber": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "assetId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "segmentStart": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "segmentEnd": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "matchReason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cropMode": {
+      "type": "string",
+      "minLength": 1
+    },
+    "matchStatus": {
+      "enum": [
+        "proposed",
+        "rejected",
+        "approved"
+      ]
+    },
+    "narration": {
+      "type": "string",
+      "minLength": 1
+    },
+    "visualGoal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "visualStyle": {
+      "type": "string",
+      "minLength": 1
+    },
+    "licenseStatusAtMatch": {
+      "type": "string",
+      "minLength": 1
+    },
+    "humanReviewStatus": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceTypeAtMatch": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

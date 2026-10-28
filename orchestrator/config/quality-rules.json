@@ -1,0 +1,29 @@
+{
+  "version": "video-quality-gate/0.1",
+  "scope": "VP-007 local MVP, not a public publishing approval",
+  "maxAutomaticRepairsPerRule": 1,
+  "prohibitedAutomaticChanges": ["asset replacement", "narration/meaning changes", "unclear licensing", "new material acquisition", "original subtitle/audio/Excel edits"],
+  "thresholds": {
+    "stillWarningSeconds": 3,
+    "sameKindRunWarningCount": 3,
+    "maxSameAssetUses": 2,
+    "transitionMinFrames": 6,
+    "transitionMaxFrames": 18,
+    "effectVsHardCutMadMinimum": 2,
+    "subtitleGlyphMaskIouMinimum": 0.95,
+    "centerTolerancePx": 10,
+    "subtitleSafeTop": 1678,
+    "speechMarginWarnBelowDb": 8,
+    "clippingTruePeakDbfs": 0
+  },
+  "rules": [
+    {"id":"VQ-01","name":"静态画面停留","deterministic":"含过渡的可见时长、重复次数、运动配置","modelAssisted":"可感知运动与内容变化是否有效","human":"开场是否吸引人","repair":"仅补已允许的轻微运动；换素材或增加内容切镜需人工"},
+    {"id":"VQ-02","name":"连续同质化视觉类型","deterministic":"类型序列与连续同类数量","modelAssisted":"实际表达是否同质化","human":"是否单调","repair":"请求 Director 重新编排提案；不自动采用改变素材/语义的提案"},
+    {"id":"VQ-03","name":"转场配置与实际效果","deterministic":"配置边界及帧数；实际编码帧与同源 hard-cut 控制帧差异","modelAssisted":"实际效果类型与正常速度可感知程度","human":"自然、明显而不过度","repair":"恢复原 Brief 转场计划、同步渲染 JSON 并重渲染一次"},
+    {"id":"VQ-04","name":"图解与字幕安全区","deterministic":"已知模板模式、实际文字像素中心与图解底界","modelAssisted":"视觉平衡与可读性","human":"构图是否舒服","repair":"仅恢复既有 centered 模式，不改变文字和语义"},
+    {"id":"VQ-05","name":"禁用常驻角标","deterministic":"角标开关与 renderer 接线；披露配置单独保留","modelAssisted":"源素材是否有其他烧录标记","human":"是否存在无意义标签","repair":"关闭装饰角标，不能删除必要披露"},
+    {"id":"VQ-06","name":"BGM 与人声平衡","deterministic":"固定文件、+3/+6 实际增益、峰值、语音能量优势与 PCM 人声一致性","modelAssisted":"歌词/人声干扰及可懂度","human":"两档试听和偏好选择","repair":"缺少安全候选时重用既有混音流程生成；不擅改持有人指定的 +6 档"},
+    {"id":"VQ-07","name":"素材匹配与重复","deterministic":"索引引用、哈希、授权、人工审核、源区间和重复次数","modelAssisted":"画面与语义贴合程度","human":"匹配是否合适","repair":"只输出现有替代候选，不自动更换素材或改变语义"},
+    {"id":"VQ-08","name":"字幕与音频时间线","deterministic":"源文本、源时间、范围/重叠、帧数及配音样本一致性","modelAssisted":"口型/语义感知同步","human":"短句同步体验","repair":"仅恢复可确定的原字幕时间；文本/配音异常转人工"}
+  ]
+}

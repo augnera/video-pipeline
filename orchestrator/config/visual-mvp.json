@@ -1,0 +1,30 @@
+{
+  "projectId": "video-pipeline",
+  "episodeId": "day9",
+  "decisionMode": "rules",
+  "inputs": {
+    "excel": "docs/day9一人公司3个必须提前做的正确选择.xlsx",
+    "script": "orchestrator/output/day9/script.voiced.json",
+    "timeline": "orchestrator/output/day9-vp005a/timeline.json",
+    "subtitles": "orchestrator/output/day9-vp005a/subtitles.srt",
+    "voice": "local-assets/voice/experiments/day9-g4/day9-preview.wav",
+    "catalog": "orchestrator/output/day9-vp006-poc/asset-catalog.json",
+    "music": "orchestrator/config/music.json",
+    "visualPolicy": "orchestrator/config/xiaochen-visual.json",
+    "previousBgmConfig": "orchestrator/output/day9-vp006-poc-r1/bgm-config.json"
+  },
+  "output": "orchestrator/output/day9-vp007",
+  "targetSeconds": 18,
+  "minSeconds": 16,
+  "maxSeconds": 20,
+  "fps": 30,
+  "maxStillSeconds": 2,
+  "targetMusicBelowVoiceLu": 15,
+  "masterGainDb": -1.5,
+  "browserExecutable": "/home/chen/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome",
+  "musicBoostCandidatesDb": [
+    3,
+    6
+  ],
+  "transitionProfile": "clear-natural"
+}

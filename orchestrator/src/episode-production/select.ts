@@ -1,0 +1,12 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {selectTransitions} from '../transitions/select.ts';
+const out='orchestrator/output/microsoft-veo-skills-20261028-vp010';
+const read=async(n:string)=>JSON.parse(await readFile(out+'/'+n,'utf8'));
+const cfg=JSON.parse(await readFile('orchestrator/config/transition-selection.json','utf8'));
+Object.assign(cfg,{durationFrames:6,maxStrongFraction:0,maxAnimatedCutFraction:.4,maxSameEffectPerFilm:3,minAnimatedGapSeconds:4,maxExtraEdgeHoldFrames:6});
+const catalog=(await read('transition-catalog.json')).effects.filter((x:any)=>!['RandomSquares','ColorCoords'].includes(x.upstreamName));
+const result=selectTransitions(await read('timeline.json'),catalog,cfg,new Set<string>());
+for(const c of result.timeline.transitions)if(c.durationFrames)(c as any).timingProfile='endpoint-inclusive-linear';
+for(const [n,x] of Object.entries({'timeline.json':result.timeline,'transition-selection-report.json':result.report,'transition-selection-config.json':cfg}))await writeFile(out+'/'+n,JSON.stringify(x,null,2)+'\n');
+const brief=await read('visual-brief.json');Object.assign(brief,{finalScenes:result.timeline.scenes,transitionPlan:result.timeline.transitions,decisionMode:'rules',modelUsed:null});await writeFile(out+'/visual-brief.json',JSON.stringify(brief,null,2)+'\n');
+console.log(result.report.distribution);

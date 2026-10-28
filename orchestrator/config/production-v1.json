@@ -1,0 +1,142 @@
+{
+  "version": "xiaochen-production/1.0",
+  "mode": "rules",
+  "scope": "private_review",
+  "excel": {
+    "sheet": "Sheet",
+    "headerRow": 1,
+    "maxColumns": 11,
+    "endRow": null,
+    "metadata": "after_contiguous_numbered_shots",
+    "freezeNarration": true,
+    "metadataLabelPattern": "^(来源|.*标题|.*说明|.*规范|.*版本|.*边界|时间与配音|画面事实)"
+  },
+  "video": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "closingHoldFrames": 24,
+    "crf": 18,
+    "concurrency": 2
+  },
+  "captions": {
+    "precision": "sentence_provenance_and_waveform",
+    "left": 76,
+    "right": 100,
+    "top": 1648,
+    "safeBottom": 1820,
+    "fontSize": 44,
+    "longFontSize": 40,
+    "longAfterCharacters": 34,
+    "lineHeight": 1.5
+  },
+  "voice": {
+    "profileRef": "local-assets/voice/experiments/day9-g4/locked-config.json",
+    "seed": 42,
+    "emoAlpha": 0.6,
+    "rhythm": {
+      "sentenceMs": 350,
+      "shotMs": 600,
+      "paragraphMs": 700,
+      "continuationMs": 200,
+      "quietThresholdDb": -40,
+      "edgeWindowMs": 10
+    },
+    "inference": {
+      "use_random": false,
+      "use_emo_text": false,
+      "emo_vector": null,
+      "interval_silence": 200,
+      "max_text_tokens_per_segment": 120,
+      "stream_return": false,
+      "verbose": true,
+      "do_sample": true,
+      "top_p": 0.8,
+      "top_k": 30,
+      "temperature": 0.8,
+      "length_penalty": 0,
+      "num_beams": 3,
+      "repetition_penalty": 10,
+      "max_mel_tokens": 1500
+    },
+    "automaticInlineEdits": false,
+    "automaticTimeStretch": false,
+    "maxAttempts": 1,
+    "maxAudioSeconds": 360
+  },
+  "music": {
+    "configRef": "orchestrator/config/music.json",
+    "auditionBoostDb": 3,
+    "holderAcceptedGain": false,
+    "targetBaselineBelowVoiceLu": 18,
+    "masterGainDb": -1.5,
+    "crossfadeSeconds": 1,
+    "fadeInSeconds": 0.5,
+    "fadeOutSeconds": 1,
+    "sampleRate": 48000,
+    "aacBitrate": "192k"
+  },
+  "visual": {
+    "policyRef": "orchestrator/config/xiaochen-visual.json",
+    "prefer": [
+      "real_stock",
+      "screen_recording"
+    ],
+    "fixedRatios": null,
+    "noFiller": true,
+    "facePolicy": "no_visible_face",
+    "overlay": {
+      "fontSize": 48,
+      "color": "#f4f6ff",
+      "accent": "#8de8ff",
+      "background": "rgba(9,15,40,.78)",
+      "maxTextCharacters": 48,
+      "defaultInFrames": 6,
+      "defaultOutFrames": 6,
+      "maxFrameAreaFraction": 0.22
+    }
+  },
+  "transitions": {
+    "catalogRef": "orchestrator/output/microsoft-veo-skills-20261028-vp010/transition-catalog.json",
+    "configRef": "orchestrator/config/transition-selection.json",
+    "ordinary": "hard_cut",
+    "softFrames": [
+      6,
+      8
+    ],
+    "progressionFrames": [
+      8,
+      10
+    ],
+    "durationFrames": 6,
+    "maxStrongFraction": 0,
+    "maxAnimatedCutFraction": 0.4,
+    "maxSameEffectPerFilm": 3,
+    "minAnimatedGapSeconds": 4,
+    "maxExtraEdgeHoldFrames": 6,
+    "exclude": [
+      "RandomSquares",
+      "ColorCoords"
+    ],
+    "fallback": "hard_cut"
+  },
+  "quality": {
+    "rulesRef": "orchestrator/config/quality-rules.json",
+    "maxRepairsPerRule": 1,
+    "noSubjectivePass": true
+  },
+  "paths": {
+    "outputRoot": "orchestrator/output",
+    "rendererProject": "experiments/gl-transitions-vp008",
+    "browserExecutable": null,
+    "ttsServiceDir": null,
+    "ttsPython": null,
+    "python": "python3"
+  },
+  "cover": {
+    "integrated": false,
+    "step": "separate_manual_generation"
+  },
+  "publish": false,
+  "wan": "STOP"
+}

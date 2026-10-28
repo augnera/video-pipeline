@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "xiaochen-visual/1",
+  "decorativeBadges": {
+    "brand": false,
+    "sceneIllustration": false
+  },
+  "brandAccentLine": false,
+  "contentDisclosure": {
+    "independentOfDecorativeBadges": true,
+    "publicationRequiresResolvedReview": true,
+    "placement": "above_subtitles",
+    "note": "AI生成或复原镜头按目标用途与平台单独复核；删除装饰角标不豁免披露。"
+  },
+  "scope": "current xiaochen PoC defaults; historical compositions may explicitly preserve their old appearance"
+}

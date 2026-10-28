@@ -1,0 +1,13 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"visual-transition/0.2",
+  "title":"Optional extension of visual-timeline/0.1 transitions, not an independent timeline",
+  "type":"object",
+  "required":["fromShotId","toShotId","transitionId","boundaryFrame","startFrame","durationFrames","params","selectionMode","selectionReason","fallbackId","isTrial","engine"],
+  "properties":{
+    "fromShotId":{"type":"string"},"toShotId":{"type":"string"},"transitionId":{"type":"string"},
+    "engine":{"enum":["gl-transitions","none"]},"boundaryFrame":{"type":"integer","minimum":0},"startFrame":{"type":"integer","minimum":0},"durationFrames":{"type":"integer","minimum":0},
+    "params":{"type":"object"},"selectionMode":{"enum":["rules"]},"selectionReason":{"type":"string"},"fallbackId":{"const":"hard_cut"},"isTrial":{"type":"boolean"}
+  },
+  "additionalProperties":true
+}

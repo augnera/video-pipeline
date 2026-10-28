@@ -1,0 +1,8 @@
+{
+  "paths": {
+    "browserExecutable": null,
+    "ttsServiceDir": null,
+    "ttsPython": null,
+    "python": "python3"
+  }
+}

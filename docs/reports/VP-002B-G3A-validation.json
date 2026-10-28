@@ -1,0 +1,411 @@
+{
+  "task": "VP-002B-G3-A",
+  "status": "awaiting-Gate-3A-holder-listening",
+  "startedAt": "2026-10-27T04:40:01.327524+00:00",
+  "input": {
+    "scriptPath": "/home/chen/work/video-pipeline/orchestrator/output/day9/script.normalized.json",
+    "scriptSha256": "4b9e3a438cc80b205b332a4d37aac00d9de5c2a67cdb492fce213942e5c2fa38",
+    "excelSha256": "2b3b0c66dbba66dbfd190beea91930907f08518ebdf995f5efb27f86bc9af72b",
+    "textSha256": "33095e0a4ff847cc4d27f5a8ffb21dd40c1908e8c19a9be5b4480b7a402a726b",
+    "shots": [
+      {
+        "shotNumber": 3,
+        "sourceRow": 4,
+        "narration": "第一个错误，是把身体当成可以透支的资源。熬夜、久坐、硬扛，觉得等产品出来了，一切都值得。"
+      },
+      {
+        "shotNumber": 4,
+        "sourceRow": 5,
+        "narration": "正确的做法是：先稳住身体，再谈进度。在一人公司里，身体不是条件之一，而是整个系统的上限。"
+      }
+    ],
+    "textSelection": "Complete adjacent shots 3 and 4, concatenated without edits or added wording",
+    "characterCount": 88,
+    "targetDurationSeconds": [
+      20,
+      30
+    ]
+  },
+  "voiceLock": {
+    "selectedSample": "A",
+    "holderScore": {
+      "total": 22,
+      "outOf": 25,
+      "similarity": 5,
+      "naturalness": 4,
+      "rhythm": 4,
+      "emotion": 4,
+      "pronunciation": 5
+    },
+    "sourceShotNumber": 2,
+    "reference": {
+      "source": "/home/chen/work/video-pipeline/local-assets/voice/raw/day9/2.m4a",
+      "sourceSha256": "262ba4e742a76dc782d2e374cb07f65c01408ec30d0e18c78192e81274684b3a",
+      "startSeconds": 0.55,
+      "endSeconds": 8.35,
+      "referencePath": "/home/chen/work/video-pipeline/local-assets/voice/references/day9-g2/ref-2.wav",
+      "sha256": "563bb8f71263fb72afdaece715376ccc1a233e25c5869976018a695d6b0501b0",
+      "textStatus": "eligible-for-authorized-experiment",
+      "promptText": "一人公司真正的风险，不是你做错了什么，而是你迟迟没有切换到正确的做法。",
+      "referenceDurationSeconds": 7.8,
+      "sampleRate": 32000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "verificationBasis": "holder final listening confirmation: 一人公司 overrides ASR 藝人公司",
+      "otherMaterialDiscrepanciesKnown": false
+    },
+    "requestParametersFromG2A": {
+      "text": "第二个错误，是产品功能越做越多。",
+      "text_lang": "zh",
+      "prompt_lang": "zh",
+      "top_k": 15,
+      "top_p": 1.0,
+      "temperature": 1.0,
+      "text_split_method": "cut5",
+      "batch_size": 1,
+      "split_bucket": false,
+      "speed_factor": 1.0,
+      "seed": 42,
+      "parallel_infer": false,
+      "repetition_penalty": 1.35,
+      "streaming_mode": false,
+      "media_type": "wav",
+      "super_sampling": false,
+      "use_cuda_graph": false,
+      "use_flash_attention": false,
+      "ref_audio_path": "/home/chen/work/video-pipeline/local-assets/voice/references/day9-g2/ref-2.wav",
+      "prompt_text": "一人公司真正的风险，不是你做错了什么，而是你迟迟没有切换到正确的做法。"
+    },
+    "model": {
+      "status": "ready",
+      "version": "v2ProPlus",
+      "sourceRevision": "b4570b876f5c086819ba84e3215472733c6a7b70",
+      "device": "cuda",
+      "isHalf": true,
+      "gptWeights": "/home/chen/ai-models-data/gpt-sovits/s1v3.ckpt",
+      "sovitsWeights": "/home/chen/ai-models-data/gpt-sovits/v2Pro/s2Gv2ProPlus.pth",
+      "gpuLock": "/home/chen/ai-services/gpu.lock",
+      "externalNetwork": "disabled",
+      "gpu": {
+        "totalMiB": 49140,
+        "usedMiB": 5996,
+        "freeMiB": 42623,
+        "temperatureC": 33
+      }
+    },
+    "authority": "holder explicitly selected A and authorized G3-A only; G3-B requires subsequent approval"
+  },
+  "request": {
+    "text": "第一个错误，是把身体当成可以透支的资源。熬夜、久坐、硬扛，觉得等产品出来了，一切都值得。正确的做法是：先稳住身体，再谈进度。在一人公司里，身体不是条件之一，而是整个系统的上限。",
+    "text_lang": "zh",
+    "prompt_lang": "zh",
+    "top_k": 15,
+    "top_p": 1.0,
+    "temperature": 1.0,
+    "text_split_method": "cut5",
+    "batch_size": 1,
+    "split_bucket": false,
+    "speed_factor": 1.0,
+    "seed": 42,
+    "parallel_infer": false,
+    "repetition_penalty": 1.35,
+    "streaming_mode": false,
+    "media_type": "wav",
+    "super_sampling": false,
+    "use_cuda_graph": false,
+    "use_flash_attention": false,
+    "ref_audio_path": "/home/chen/work/video-pipeline/local-assets/voice/references/day9-g2/ref-2.wav",
+    "prompt_text": "一人公司真正的风险，不是你做错了什么，而是你迟迟没有切换到正确的做法。"
+  },
+  "healthBefore": {
+    "status": "ready",
+    "version": "v2ProPlus",
+    "sourceRevision": "b4570b876f5c086819ba84e3215472733c6a7b70",
+    "device": "cuda",
+    "isHalf": true,
+    "gptWeights": "/home/chen/ai-models-data/gpt-sovits/s1v3.ckpt",
+    "sovitsWeights": "/home/chen/ai-models-data/gpt-sovits/v2Pro/s2Gv2ProPlus.pth",
+    "gpuLock": "/home/chen/ai-services/gpu.lock",
+    "externalNetwork": "disabled",
+    "gpu": {
+      "totalMiB": 49140,
+      "usedMiB": 5996,
+      "freeMiB": 42623,
+      "temperatureC": 33
+    }
+  },
+  "g3BStarted": false,
+  "httpStatus": 200,
+  "contentType": "audio/wav",
+  "generationSeconds": 4.322,
+  "audio": {
+    "path": "/home/chen/work/video-pipeline/local-assets/voice/experiments/day9-g3/long-test.wav",
+    "bytes": 1542444,
+    "sha256": "db13335508b3a0889b65afaa080d0c6f1baf1d3daf6e5fedf7b065be14cca769",
+    "durationSeconds": 24.1,
+    "sampleRate": 32000,
+    "channels": 1,
+    "codec": "pcm_s16le",
+    "decodeExitCode": 0,
+    "decodedDurationSeconds": 24.1,
+    "rmsDbFS": -26.72,
+    "samplePeakDbFS": -10.02,
+    "fullScaleSamples": 0,
+    "withinTargetDuration": true
+  },
+  "gpuMonitor": [
+    {
+      "offsetSeconds": 0.026,
+      "usedMiB": 5996,
+      "freeMiB": 42623,
+      "temperatureC": 33
+    },
+    {
+      "offsetSeconds": 0.551,
+      "usedMiB": 6238,
+      "freeMiB": 42381,
+      "temperatureC": 34
+    },
+    {
+      "offsetSeconds": 1.078,
+      "usedMiB": 6238,
+      "freeMiB": 42381,
+      "temperatureC": 35
+    },
+    {
+      "offsetSeconds": 1.609,
+      "usedMiB": 6240,
+      "freeMiB": 42379,
+      "temperatureC": 35
+    },
+    {
+      "offsetSeconds": 2.139,
+      "usedMiB": 6240,
+      "freeMiB": 42379,
+      "temperatureC": 35
+    },
+    {
+      "offsetSeconds": 2.667,
+      "usedMiB": 6240,
+      "freeMiB": 42379,
+      "temperatureC": 35
+    },
+    {
+      "offsetSeconds": 3.192,
+      "usedMiB": 6240,
+      "freeMiB": 42379,
+      "temperatureC": 35
+    },
+    {
+      "offsetSeconds": 3.734,
+      "usedMiB": 6240,
+      "freeMiB": 42379,
+      "temperatureC": 35
+    },
+    {
+      "offsetSeconds": 4.259,
+      "usedMiB": 6240,
+      "freeMiB": 42379,
+      "temperatureC": 35
+    }
+  ],
+  "gpuAnomalies": [],
+  "qualityChecks": {
+    "checkedAt": "2026-10-27T04:40:39.361843+00:00",
+    "machineTranscript": "第一个错误,是把身体当成可以透支的资源熬夜、久坐、硬康、觉得等产品出来了一切都值得正确的做法是先稳住身体、再谈进度、再一人公司里身体不是条件之一,而是整个系统的上限",
+    "asrSegments": [
+      {
+        "start": 0.0,
+        "end": 4.26,
+        "text": "第一个错误,是把身体当成可以透支的资源",
+        "avgLogProbability": -0.26159561653526464,
+        "noSpeechProbability": 0.04318559542298317
+      },
+      {
+        "start": 4.26,
+        "end": 9.5,
+        "text": "熬夜、久坐、硬康、觉得等产品出来了",
+        "avgLogProbability": -0.26159561653526464,
+        "noSpeechProbability": 0.04318559542298317
+      },
+      {
+        "start": 9.5,
+        "end": 13.2,
+        "text": "一切都值得正确的做法是",
+        "avgLogProbability": -0.26159561653526464,
+        "noSpeechProbability": 0.04318559542298317
+      },
+      {
+        "start": 13.2,
+        "end": 18.32,
+        "text": "先稳住身体、再谈进度、再一人公司里",
+        "avgLogProbability": -0.26159561653526464,
+        "noSpeechProbability": 0.04318559542298317
+      },
+      {
+        "start": 18.32,
+        "end": 23.64,
+        "text": "身体不是条件之一,而是整个系统的上限",
+        "avgLogProbability": -0.26159561653526464,
+        "noSpeechProbability": 0.04318559542298317
+      }
+    ],
+    "asrMethod": "existing local faster-whisper-small CPU int8; no download, no GPU; not authoritative pronunciation judgment",
+    "silenceMethod": "FFmpeg silencedetect -40 dBFS for >=0.3 s; natural punctuation pauses are not automatically errors",
+    "silenceIntervals": [
+      {
+        "start": 1.051,
+        "end": 1.47622,
+        "durationSeconds": 0.42522
+      },
+      {
+        "start": 4.29169,
+        "end": 4.80703,
+        "durationSeconds": 0.51534
+      },
+      {
+        "start": 5.27959,
+        "end": 5.79619,
+        "durationSeconds": 0.5166
+      },
+      {
+        "start": 6.36538,
+        "end": 6.90066,
+        "durationSeconds": 0.53528
+      },
+      {
+        "start": 7.46869,
+        "end": 7.78109,
+        "durationSeconds": 0.3124
+      },
+      {
+        "start": 9.57062,
+        "end": 10.0743,
+        "durationSeconds": 0.50368
+      },
+      {
+        "start": 11.4296,
+        "end": 11.908,
+        "durationSeconds": 0.4784
+      },
+      {
+        "start": 13.2541,
+        "end": 13.8491,
+        "durationSeconds": 0.595
+      },
+      {
+        "start": 15.0698,
+        "end": 15.6063,
+        "durationSeconds": 0.5365
+      },
+      {
+        "start": 16.6198,
+        "end": 17.148,
+        "durationSeconds": 0.5282
+      },
+      {
+        "start": 18.332,
+        "end": 18.9489,
+        "durationSeconds": 0.6169
+      },
+      {
+        "start": 20.9946,
+        "end": 21.4721,
+        "durationSeconds": 0.4775
+      },
+      {
+        "start": 23.7178,
+        "end": 24.1,
+        "durationSeconds": 0.3822
+      }
+    ],
+    "longSilencesOver1_5Seconds": [],
+    "maxDetectedSilenceSeconds": 0.6169,
+    "holderListeningRequired": true,
+    "holderReview": [
+      "stable timbre",
+      "long-sentence naturalness",
+      "pacing/pauses",
+      "emotion for 视频号",
+      "mechanical artifacts/voice drift",
+      "pronunciation"
+    ],
+    "textComparison": {
+      "method": "Remove punctuation/whitespace only; preserve Chinese wording",
+      "differences": [
+        {
+          "operation": "replace",
+          "authoritativeText": "扛",
+          "machineTranscript": "康",
+          "sourceContext": "熬夜久坐硬扛觉得等产品",
+          "notConfirmedAsActualPronunciationError": true
+        },
+        {
+          "operation": "replace",
+          "authoritativeText": "在",
+          "machineTranscript": "再",
+          "sourceContext": "体再谈进度在一人公司里",
+          "notConfirmedAsActualPronunciationError": true
+        }
+      ],
+      "firstSentenceRecognized": true,
+      "lastSentenceRecognized": true,
+      "unexplainedTruncationObserved": false,
+      "humanMustVerifyASRDifferences": true
+    },
+    "listeningFocus": [
+      {
+        "approxStartSeconds": 6.8,
+        "approxEndSeconds": 7.8,
+        "authoritativeText": "硬扛",
+        "machineTranscript": "硬康",
+        "reason": "Potential tone/recognition ambiguity; requires holder listening"
+      },
+      {
+        "approxStartSeconds": 17.0,
+        "approxEndSeconds": 18.6,
+        "authoritativeText": "在一人公司里",
+        "machineTranscript": "再一人公司里",
+        "reason": "在/再 are homophones; ASR spelling is not proof of pronunciation error"
+      }
+    ]
+  },
+  "healthAfter": {
+    "status": "ready",
+    "version": "v2ProPlus",
+    "sourceRevision": "b4570b876f5c086819ba84e3215472733c6a7b70",
+    "device": "cuda",
+    "isHalf": true,
+    "gptWeights": "/home/chen/ai-models-data/gpt-sovits/s1v3.ckpt",
+    "sovitsWeights": "/home/chen/ai-models-data/gpt-sovits/v2Pro/s2Gv2ProPlus.pth",
+    "gpuLock": "/home/chen/ai-services/gpu.lock",
+    "externalNetwork": "disabled",
+    "gpu": {
+      "totalMiB": 49140,
+      "usedMiB": 5979,
+      "freeMiB": 42640,
+      "temperatureC": 33
+    }
+  },
+  "inputIntegrity": {
+    "originalExcelUnchanged": true,
+    "all10OriginalM4AUnchanged": true,
+    "normalizedJsonUnchanged": true,
+    "modelFilesUnchanged": true,
+    "referenceWaveformUnchanged": true
+  },
+  "scope": {
+    "g3ARequestsPerformed": 1,
+    "g3BStarted": false,
+    "fullDay9NarrationGenerated": false,
+    "newModelsDownloaded": false,
+    "trainingOrFineTuningPerformed": false,
+    "wanComfyUIOrVideoWorkPerformed": false
+  },
+  "gate": {
+    "status": "waiting-for-holder-Gate-3A-listening",
+    "approved": false,
+    "nextAction": "Holder judges timbre consistency, naturalness, pauses, emotion, mechanical artifacts and ASR doubts; do not execute G3-B until explicit approval"
+  },
+  "completedAt": "2026-10-27T04:41:41.269706+00:00"
+}

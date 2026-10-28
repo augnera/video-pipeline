@@ -1,0 +1,147 @@
+{
+  "task": "VP-002B-G2",
+  "architecture": "VP-ARCH-001",
+  "recordedAt": "2026-10-27T04:29:51.382728+00:00",
+  "status": "three-samples-ready-awaiting-holder-blind-listening",
+  "paths": {
+    "program": "/home/chen/ai-models/GPT-SoVITS",
+    "weights": "/home/chen/ai-models-data/gpt-sovits",
+    "service": "/home/chen/ai-services/gpt-sovits",
+    "venv": "/home/chen/ai-services/gpt-sovits/venv"
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "matplotlib": "3.9.4",
+    "contourpy": "1.3.1",
+    "torch": "2.7.1+cu128",
+    "python-multipart": "0.0.32",
+    "resampy": "0.4.3"
+  },
+  "pipCheckExitCode": 0,
+  "pipCheckOutput": "No broken requirements found.",
+  "cudaAvailable": true,
+  "cudaRuntime": "12.8",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "service": {
+    "status": "ready",
+    "version": "v2ProPlus",
+    "sourceRevision": "b4570b876f5c086819ba84e3215472733c6a7b70",
+    "device": "cuda",
+    "isHalf": true,
+    "gptWeights": "/home/chen/ai-models-data/gpt-sovits/s1v3.ckpt",
+    "sovitsWeights": "/home/chen/ai-models-data/gpt-sovits/v2Pro/s2Gv2ProPlus.pth",
+    "gpuLock": "/home/chen/ai-services/gpu.lock",
+    "externalNetwork": "disabled",
+    "gpu": {
+      "totalMiB": 49140,
+      "usedMiB": 5972,
+      "freeMiB": 42647,
+      "temperatureC": 33
+    }
+  },
+  "servicePid": 795742,
+  "modelDownloadedBytes": 1892104076,
+  "modelFilesUnchangedAndReverified": true,
+  "originalRecordingsUnchanged": true,
+  "samples": [
+    {
+      "label": "A",
+      "path": "/home/chen/work/video-pipeline/local-assets/voice/experiments/day9-g2/A.wav",
+      "durationSeconds": 4.0,
+      "generationSeconds": 1.333,
+      "sampleRate": 32000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "bytes": 256044,
+      "sha256": "e5aaf225d60d9b4a04f7c8d57bb369fc69e36b8809c3252b8e36ba4107acdbce",
+      "decodeExitCode": 0,
+      "rmsDbFS": -26.78,
+      "samplePeakDbFS": -11.3,
+      "gpuPeakUsedMiB": 6181
+    },
+    {
+      "label": "B",
+      "path": "/home/chen/work/video-pipeline/local-assets/voice/experiments/day9-g2/B.wav",
+      "durationSeconds": 4.64,
+      "generationSeconds": 5.109,
+      "sampleRate": 32000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "bytes": 297004,
+      "sha256": "df6c32dbd787fedccd09a6e1faa32d7be1c04f162917193e6e508ff9d576e549",
+      "decodeExitCode": 0,
+      "rmsDbFS": -24.61,
+      "samplePeakDbFS": -9.98,
+      "gpuPeakUsedMiB": 6301
+    },
+    {
+      "label": "C",
+      "path": "/home/chen/work/video-pipeline/local-assets/voice/experiments/day9-g2/C.wav",
+      "durationSeconds": 4.08,
+      "generationSeconds": 1.186,
+      "sampleRate": 32000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "bytes": 261164,
+      "sha256": "2a532c65f6a380436cdf3b0ddb201a235ade685b939ecd9f23793112a2fc9758",
+      "decodeExitCode": 0,
+      "rmsDbFS": -25.09,
+      "samplePeakDbFS": -10.93,
+      "gpuPeakUsedMiB": 6085
+    }
+  ],
+  "commonParameters": {
+    "text": "第二个错误，是产品功能越做越多。",
+    "text_lang": "zh",
+    "prompt_lang": "zh",
+    "top_k": 15,
+    "top_p": 1.0,
+    "temperature": 1.0,
+    "text_split_method": "cut5",
+    "batch_size": 1,
+    "split_bucket": false,
+    "speed_factor": 1.0,
+    "seed": 42,
+    "parallel_infer": false,
+    "repetition_penalty": 1.35,
+    "streaming_mode": false,
+    "media_type": "wav",
+    "super_sampling": false,
+    "use_cuda_graph": false,
+    "use_flash_attention": false
+  },
+  "referenceConfirmationFile": "/home/chen/work/video-pipeline/local-assets/voice/references/day9-g2/reference-text-confirmation.json",
+  "historicalMachineTranscriptsPreserved": true,
+  "blindMappingStoredSeparately": true,
+  "blindMappingRevealed": false,
+  "gpuLockCheck": {
+    "status": 409,
+    "body": "{\"error\": \"[Errno 11] Resource temporarily unavailable\"}",
+    "inferencePerformed": false
+  },
+  "gpuPeakSampledUsedMiB": 6301,
+  "gpuPeakMeasurement": "nvidia-smi sampled every ~0.5 s; includes desktop/other baseline, not exact allocation peak",
+  "limitations": [
+    "Voice similarity, naturalness, pacing, emotion and pronunciation require holder listening",
+    "Generation timing includes initial cold-start overhead; not a controlled performance benchmark",
+    "Single cooperative GPU file lock only protects participating services; no complex scheduler"
+  ],
+  "historicalFailures": [
+    "Unconstrained matplotlib upgraded NumPy; fixed with holder-approved pins",
+    "Missing python-multipart blocked API route registration; fixed in dedicated venv",
+    "First real /tts returned HTTP 400 before audio generation because resampy missing; fixed in dedicated venv, failed request archived"
+  ],
+  "pending": [
+    "Holder scores anonymous A/B/C and selects reference",
+    "No complete Day9 narration before holder selection"
+  ],
+  "scopeChecks": {
+    "noOtherEnvironmentChanges": true,
+    "noDriverChanges": true,
+    "noNewModelDownloadsThisContinuation": true,
+    "noOriginalAudioOrExcelEdits": true,
+    "noVoiceOrWeightGitCommitOrPush": true,
+    "noWanComfyUIOrVideoWork": true,
+    "noTrainingOrFineTuning": true
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "noUnusedLocals": false
+  },
+  "include": [
+    "src",
+    "../../orchestrator/src/transitions",
+    "../../orchestrator/src/visual-mvp/types.ts",
+    "../../orchestrator/src/full-day9"
+  ]
+}

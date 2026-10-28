@@ -1,0 +1,5 @@
+{
+  "contractVersion":"transition-human-review/0.1",
+  "note":"Only explicit holder/reviewer decisions belong here. Catalog rebuilds preserve this independent record; technical export never grants RECOMMENDED or ALLOWED.",
+  "ratings":{}
+}

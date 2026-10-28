@@ -1,0 +1,3 @@
+# Preserve pinned upstream code and copied notices byte-for-byte.
+experiments/gl-transitions-vp008/vendor/upstream/** -whitespace
+experiments/gl-transitions-vp008/THIRD-PARTY-NOTICES.md -whitespace

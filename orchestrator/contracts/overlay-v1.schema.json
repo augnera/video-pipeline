@@ -1,0 +1,12 @@
+{
+ "$schema":"https://json-schema.org/draft/2020-12/schema",
+ "title":"Timeline overlay element v1 (global frame clock)","type":"object","additionalProperties":false,
+ "required":["id","text","fromFrame","toFrame","rect","animation"],
+ "properties":{
+  "id":{"type":"string","minLength":1},"sceneId":{"type":"string"},"text":{"type":"string","minLength":1},
+  "fromFrame":{"type":"integer","minimum":0},"toFrame":{"type":"integer","minimum":1},
+  "rect":{"type":"object","additionalProperties":false,"required":["x","y","width","height"],"properties":{"x":{"type":"number"},"y":{"type":"number"},"width":{"type":"number","exclusiveMinimum":0},"height":{"type":"number","exclusiveMinimum":0}}},
+  "fontSize":{"type":"number","minimum":28,"maximum":96},
+  "animation":{"type":"object","additionalProperties":false,"required":["type","inFrames","outFrames"],"properties":{"type":{"enum":["none","fade","slide_up","scale"]},"inFrames":{"type":"integer","minimum":0},"outFrames":{"type":"integer","minimum":0}}}
+ }
+}

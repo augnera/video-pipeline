@@ -7,19 +7,23 @@
     "test:import": "node --import tsx --test src/import/excel.test.ts",
     "build": "tsc",
     "pipeline": "node --env-file=.env --import tsx src/index.ts",
-    "record": "node --env-file=.env --import tsx src/record/demo-recorder.ts"
+    "record": "node --env-file=.env --import tsx src/record/demo-recorder.ts",
+    "mvp:visual": "node --import tsx src/visual-mvp/entry.ts",
+    "test:visual-mvp": "node --import tsx --test src/visual-mvp/core.test.ts src/visual-mvp/quality.test.ts",
+    "produce": "node --import tsx src/production/cli.ts",
+    "test:production": "node --import tsx --test src/production/production.test.ts"
   },
   "dependencies": {
-    "fluent-ffmpeg": "^2.1.3",
-    "playwright": "^1.49.0",
+    "fluent-ffmpeg": "2.1.3",
+    "playwright": "1.61.1",
     "read-excel-file": "9.3.12",
-    "ws": "^8.18.0"
+    "ws": "8.21.0"
   },
   "devDependencies": {
-    "@types/fluent-ffmpeg": "^2.1.27",
-    "@types/node": "^22.0.0",
-    "@types/ws": "^8.5.13",
-    "tsx": "^4.19.0",
-    "typescript": "^5.7.0"
+    "@types/fluent-ffmpeg": "2.1.28",
+    "@types/node": "22.20.0",
+    "@types/ws": "8.18.1",
+    "tsx": "4.22.4",
+    "typescript": "5.9.3"
   }
 }

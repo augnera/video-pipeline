@@ -1,0 +1,26 @@
+{
+  "contractVersion":"transition-selection/0.1",
+  "mode":"rules",
+  "exploration":true,
+  "durationFrames":18,
+  "maxConsecutiveSame":1,
+  "maxSameEffectPerFilm":2,
+  "minStrongGapSeconds":4,
+  "maxStrongFraction":0.34,
+  "maxAnimatedCutFraction":1,
+  "recentPenalty":6,
+  "maxExtraEdgeHoldFrames":9,
+  "defaultFallbackId":"hard_cut",
+  "readableKinds":["screen_recording","code","chart"],
+  "relations":{
+    "continuation":["dissolve","wipe"],
+    "progression":["wipe","dissolve"],
+    "detail":["focus","wipe"],
+    "conclusion":["focus","wipe","dissolve"],
+    "visual_type_change":["wipe","dissolve","light_color"],
+    "chapter_change":["geometry","perspective","light_color"],
+    "reversal":["glitch","focus"],
+    "unknown":["dissolve"]
+  },
+  "notes":["Only exact default parameter values and duration verified by export are eligible.","No inferred subject/focus/motion direction without supplied metadata.","Strong transition budget uses floor(cutCount*maxStrongFraction); short clips may therefore use none.","Short edge holds are bounded at nine frames, never change scene, voice or subtitle clock."]
+}
