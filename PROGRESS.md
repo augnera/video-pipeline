@@ -97,3 +97,10 @@
 - 修补ignore排除本地资源、实验public、环境/本地配置、模型和音视频；只按文件清单暂存源码、配置/锁、规则/指南/报告，不使用git add .。
 - 未发布历史曾包含node_modules；已在保留本地原历史备份分支 `backup/pre-production-v1-publish-20261028-232916` 后仅清理未发布提交。原最终源码树、索引与工作区不变，不改远端历史，不推送备份分支。
 - 检查证据与未提交范围：[GitHub交付检查](docs/reports/Production-v1.0-GitHub-delivery.md)。本检查点不提前记推送成功，结果待正常提交/推送及远端核对。
+
+
+### v1.0 GitHub源码交付已核实
+
+- 功能提交 `7b0fb25c83ea8a02a787bdce14e56f01c245c905`（feat: establish production v1 workflow with resumable stages）已正常快进推送origin/main，git ls-remote核对一致；[GitHub提交](https://github.com/augnera/video-pipeline/commit/7b0fb25c83ea8a02a787bdce14e56f01c245c905)。
+- 341个文件的本次变更包含源码、配置/锁、规则、指南、报告及小型开源代码依赖；未上传私人声音、模型、BGM、素材、音视频、缓存、字体或node_modules。历史依赖误提交仅清理未发布部分，本地原历史备份仍保留。
+- 本机微软脚本Excel未暂存，其他本地资源由ignore排除；GitHub仅保存源码/配置/文档，并非视频及素材的异地备份。此次追加仅记录已核实推送，不重写功能提交；最新远端提交以最终交付核对为准。
