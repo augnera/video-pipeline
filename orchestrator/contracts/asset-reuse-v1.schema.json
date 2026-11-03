@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Asset library reuse record v1 (sidecar; Asset v0.1 unchanged)",
+  "type": "object",
+  "required": [
+    "semanticUses",
+    "unsuitableFor",
+    "scope",
+    "composition"
+  ],
+  "properties": {
+    "semanticUses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unsuitableFor": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "scope": {
+      "enum": [
+        "general",
+        "news_event"
+      ]
+    },
+    "scopeEpisodeId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "acquiredAt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "composition": {
+      "type": "object",
+      "required": [
+        "cropMode",
+        "objectPosition",
+        "overlayRegions",
+        "protectedRegions",
+        "reviewStatus"
+      ],
+      "properties": {
+        "cropMode": {
+          "enum": [
+            "contain",
+            "cover",
+            "window",
+            "portrait_focus",
+            "genuine_editor_closeup"
+          ]
+        },
+        "objectPosition": {
+          "type": "string"
+        },
+        "visibleFace": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "reviewStatus": {
+          "type": "string"
+        },
+        "overlayRegions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "x",
+              "y",
+              "width",
+              "height",
+              "coordinateSpace"
+            ],
+            "properties": {
+              "x": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "y": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "width": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "height": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "coordinateSpace": {
+                "const": "output-normalized"
+              }
+            }
+          }
+        },
+        "protectedRegions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "x",
+              "y",
+              "width",
+              "height",
+              "coordinateSpace"
+            ],
+            "properties": {
+              "x": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "y": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "width": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "height": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "coordinateSpace": {
+                "const": "output-normalized"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

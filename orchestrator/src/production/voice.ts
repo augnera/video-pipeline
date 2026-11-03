@@ -43,7 +43,7 @@ export function alignGenerated(wav: Buffer, plan: any, audit: any, script: any) 
         captions.push(c);
         timing.push({ ...range, ...c });
     }
-    const shots = script.shots.map((s: any) => { const rows = timing.filter(x => x.shotNumber === s.shotNumber); return { ...s, voiceover: { timelineStartSeconds: rows[0].start / sampleRate, timelineEndSeconds: rows.at(-1).end / sampleRate, durationSeconds: (rows.at(-1).end - rows[0].start) / sampleRate } }; });
+    const shots = script.shots.map((s: any) => { const rows = timing.filter(x => x.shotNumber === s.shotNumber); if(!rows.length){if(s.narration || s.audioSource!=='external_media')throw Error('Missing narrated shot timing');const prev=timing.filter(x=>x.shotNumber<s.shotNumber).at(-1);const at=(prev?.end ?? 0)/sampleRate;return {...s,voiceover:{timelineStartSeconds:at,timelineEndSeconds:at,durationSeconds:0,externalInsertPending:true}};} return { ...s, voiceover: { timelineStartSeconds: rows[0].start / sampleRate, timelineEndSeconds: rows.at(-1).end / sampleRate, durationSeconds: (rows.at(-1).end - rows[0].start) / sampleRate } }; });
     return { captions, voiced: { ...script, schemaVersion: 'ip-script-voiced/1', shots, actualDurationSeconds: count / sampleRate }, precision: 'Sentence synthesis provenance and actual waveform, not word alignment' };
 }
 export const srt = (cues: any[]) => cues.map((c, i) => `${i + 1}\n${stamp(c.startSeconds)} --> ${stamp(c.endSeconds)}\n${c.text}\n`).join('\n');

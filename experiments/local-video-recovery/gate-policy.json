@@ -1,0 +1,47 @@
+{
+  "version": "0.3.1",
+  "operationalLimits": {
+    "maxTemperatureC": 75,
+    "nvmlTimeoutSeconds": 3,
+    "hostHeartbeatMaxAgeSeconds": 8,
+    "cudaProbeTimeoutSeconds": 30,
+    "postProbeObservationSeconds": 8,
+    "reviewMaxAgeSeconds": 3600,
+    "sharedDesktopReserveMiB": 4096
+  },
+  "stages": {
+    "A": {
+      "name": "single_64x64_fp32_cuda_probe",
+      "requirements": ["incident_baseline_review", "post_incident_symptoms", "current_device_state", "native_host_monitor_ready", "other_consumers_review"],
+      "minimumFreeMiB": 4096,
+      "utilizationWarnPercent": 15,
+      "requiresIncidentDump": false,
+      "requiresProvenRootCause": false,
+      "requiresPsuSpecification": false,
+      "requiresHotspotOrPcieCounters": false
+    },
+    "B": {
+      "name": "single_wan21_t2v_1_3b_sample",
+      "requirements": ["stage_a_result_review", "hardware_power_review", "model_assets_license_integrity", "sample_resource_profile", "standard_operator_path", "bounded_model_runner"],
+      "minimumFreeMiB": 14336,
+      "requiresIncidentDump": false,
+      "resourceBudgetStatus": "CONSERVATIVE_FIXED_WAN21_PROFILE_PLANNING_BOUND_NOT_MEASURED",
+      "profile": "wan21-profile.json",
+      "runner": "wan21-child.py",
+      "maxAttempts": 1,
+      "hardwareReviewScope": {
+        "psuModelAndRatingRequired": true,
+        "declaredAdapterAssumptionAllowedForThisSingleBoundedTrial": true,
+        "physicalConnectionSafetyVerified": false,
+        "unknownConnectionMustRemainInEvidence": true,
+        "allowsProductionOrStressTest": false
+      }
+    },
+    "C": {
+      "name": "controlled_repeat_then_separate_production_decision",
+      "requirements": ["stage_b_result_review", "repeat_plan_and_limits"],
+      "productionRequirements": ["repeat_evidence_review", "human_visual_review", "production_authorization"],
+      "productionEnabledByThisTool": false
+    }
+  }
+}

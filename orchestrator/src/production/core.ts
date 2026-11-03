@@ -39,11 +39,12 @@ export async function loadConfig(override?: string) {
         c = merge(c, await read('orchestrator/config/production.local.json'));
     if (override)
         c = merge(c, await read(override));
-    for (const [k, env] of Object.entries({ browserExecutable: 'VP_BROWSER_EXECUTABLE', ttsServiceDir: 'VP_TTS_SERVICE_DIR', ttsPython: 'VP_TTS_PYTHON' }))
+    for (const [k, env] of Object.entries({ browserExecutable: 'VP_BROWSER_EXECUTABLE', ttsServiceDir: 'VP_TTS_SERVICE_DIR', ttsPython: 'VP_TTS_PYTHON', ttsModelSource: 'VP_TTS_MODEL_SOURCE', ttsModelDirectory: 'VP_TTS_MODEL_DIRECTORY' }))
         if (process.env[env])
             c.paths[k] = process.env[env];
     if (c.version !== 'xiaochen-production/1.0' || c.mode !== 'rules' || c.publish !== false || c.wan !== 'STOP' || c.quality.maxRepairsPerRule !== 1 || c.voice.maxAttempts !== 1 || c.voice.automaticTimeStretch !== false || c.music.sampleRate !== 48000 || !Number.isFinite(c.voice.maxAudioSeconds) || c.voice.maxAudioSeconds <= 5 || c.voice.maxAudioSeconds > 360)
         throw Error('Unsupported mode/version or prohibited boundary override');
+    if(c.voice.device !== 'cpu' || c.voice.precision !== 'fp32') throw Error('GPU_TTS_STOP: new voice synthesis requires CPU/FP32');
     if (c.video.fps !== 30 || c.video.width !== 1080 || c.video.height !== 1920)
         throw Error('v1.0 currently verifies1080x1920/30 only');
     for (const [name, n, low, high] of [

@@ -1,0 +1,76 @@
+{
+  "checkedDate": "2026-10-29",
+  "comfyCommit": "426f5eea52a7ece1dd599fff4cb6cd1f352ddd24",
+  "wan21SourceCommit": "9737cba9c1c3c4d04b33fcad41c111989865d315",
+  "wan22SourceCommit": "1ea34ff48f87168174e12956e200b1d908b1c5ff",
+  "otherLightCandidateInstalled": false,
+  "models": [
+    {
+      "modelId": "wan22-ti2v-5b",
+      "role": "existing_primary_evaluation",
+      "weightsRepository": "Comfy-Org/Wan-2.2",
+      "revision": "c4f60d30c55a624e35427060fdd217579a6c1d77",
+      "weightFiles": [
+        "split_files/diffusion_models/wan2.2_ti2v_5B_fp16.safetensors",
+        "split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "split_files/vae/wan2.2_vae.safetensors"
+      ],
+      "weightLicense": "Apache-2.0 (fixed repack card + originating Wan weight card)",
+      "originatingRepository": "Wan-AI/Wan2.2-TI2V-5B",
+      "originatingRevision": "921dbaf3f1674a56f47e83fb80a34bac8a8f203e",
+      "textEncoderOrigin": "google/umt5-xxl",
+      "textEncoderOriginRevision": "66cb9e7e85526fe440a945569e42c72fb6cbc0ad",
+      "textEncoderLicense": "Apache-2.0",
+      "vaeLicenseBasis": "Wan2.2 weight declaration + repack card; local download metadata revision/hash matched",
+      "localFilesVerified": true,
+      "gpuCompatibility": "NOT_EVALUATED",
+      "productionEnabled": false
+    },
+    {
+      "modelId": "wan21-t2v-1.3b",
+      "role": "selected_light_candidate",
+      "weightsRepository": "Comfy-Org/Wan-2.1",
+      "revision": "123acf1cc74bccbb9bfff8ac1ee72edc08c2341d",
+      "weightFiles": [
+        "split_files/diffusion_models/wan2.1_t2v_1.3B_bf16.safetensors",
+        "split_files/vae/wan_2.1_vae.safetensors"
+      ],
+      "weightLicense": "Apache-2.0: fixed Comfy repack model card plus original Wan-AI/Wan2.1-T2V-1.3B LICENSE.txt",
+      "vaeLicenseBasis": "same Wan2.1 weight repository declaration; VAE2.2 cannot substitute",
+      "textEncoderOrigin": "google/umt5-xxl",
+      "textEncoderLicense": "Apache-2.0",
+      "localFilesVerified": true,
+      "downloadStatus": "VERIFIED_LOCAL",
+      "gpuCompatibility": "NOT_EVALUATED",
+      "productionEnabled": false,
+      "localFiles": [
+        {
+          "source": "Comfy-Org/Wan-2.1",
+          "revision": "123acf1cc74bccbb9bfff8ac1ee72edc08c2341d",
+          "file": "split_files/diffusion_models/wan2.1_t2v_1.3B_bf16.safetensors",
+          "url": "https://huggingface.co/Comfy-Org/Wan-2.1/resolve/123acf1cc74bccbb9bfff8ac1ee72edc08c2341d/split_files/diffusion_models/wan2.1_t2v_1.3B_bf16.safetensors?download=true",
+          "path": "/home/chen/work/video-pipeline/local-assets/experiments/video-recovery-20261029/wan21/wan2.1_t2v_1.3B_bf16.safetensors",
+          "bytes": 2838104528,
+          "sha256": "6f999b0d6cb9a72b3d98ac386ed96f57f8cecae13994a69232514ea4974ad5fd",
+          "verifiedAt": "2026-10-29T05:42:17.919781+00:00",
+          "license": "Apache-2.0 model-card declaration, inherited Wan2.1 weight license"
+        },
+        {
+          "source": "Comfy-Org/Wan-2.1",
+          "revision": "123acf1cc74bccbb9bfff8ac1ee72edc08c2341d",
+          "file": "split_files/vae/wan_2.1_vae.safetensors",
+          "url": "https://huggingface.co/Comfy-Org/Wan-2.1/resolve/123acf1cc74bccbb9bfff8ac1ee72edc08c2341d/split_files/vae/wan_2.1_vae.safetensors?download=true",
+          "path": "/home/chen/work/video-pipeline/local-assets/experiments/video-recovery-20261029/wan21/wan_2.1_vae.safetensors",
+          "bytes": 253815318,
+          "sha256": "2fc39d31359a4b0a64f55876d8ff7fa8d780956ae2cb13463b0223e15148976b",
+          "verifiedAt": "2026-10-29T05:42:33.644651+00:00",
+          "license": "Apache-2.0 model-card declaration, inherited Wan2.1 weight license"
+        }
+      ],
+      "originatingRepository": "Wan-AI/Wan2.1-T2V-1.3B",
+      "originatingRevision": "37ec512624d61f7aa208f7ea8140a131f93afc9a",
+      "textEncoderReuse": "existing Comfy-Org/Wan-2.2 scaled UMT5; embedded tokenizer matches original Wan2.1 LFS SHA; CPU eager slice verified, full encoding NOT_RUN",
+      "weightLicenseSource": "https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B/blob/37ec512624d61f7aa208f7ea8140a131f93afc9a/LICENSE.txt"
+    }
+  ]
+}

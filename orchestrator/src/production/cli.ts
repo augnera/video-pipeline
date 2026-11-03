@@ -10,6 +10,7 @@ import { intentBrief, assembleTimeline } from './visual.ts';
 import { mixAudio, renderPicture, compose, probe, ff } from './media.ts';
 import { qualityAndRepair } from './quality.ts';
 import { runProcess } from '../visual-mvp/process.ts';
+import { localAssetProposal } from './asset-library.ts';
 import { validateOverlays } from './overlays.ts';
 const { values } = parseArgs({ options: { excel: { type: 'string' }, episode: { type: 'string' }, config: { type: 'string' }, resources: { type: 'string' }, out: { type: 'string' }, resume: { type: 'boolean' }, reuse: { type: 'string' }, help: { type: 'boolean' } } });
 if (values.help) {
@@ -77,7 +78,7 @@ try {
         return { artifacts: { facts: dir + '/fact-check.json' }, origin: resources.legacy ? 'legacy_cache' : undefined, data: { externalFactsReviewed: !!facts.checkedAt } };
     });
     await E.stage('brief', { narration: imp.data.narrationSha256, resources: await resourceRef('visualBrief'), policy: c.visual, code: await digest('orchestrator/src/production/visual.ts') }, ['import'], async (dir):Promise<StageResult> => { const b = resources.visualBrief ? await read(resources.visualBrief) : intentBrief(script); await save(dir + '/visual-brief.json', b); return { artifacts: { brief: dir + '/visual-brief.json' }, origin: resources.legacy ? 'legacy_cache' : undefined, data: { mode: 'rules', modelUsed: null } }; });
-    await E.stage('voice-acquire', { narration: imp.data.narrationSha256, policy: { seed: c.voice.seed, emoAlpha: c.voice.emoAlpha, inference: c.voice.inference, rhythm: c.voice.rhythm }, profile: await ref(c.voice.profileRef), resources: await resourceRef('voice'), voiceSha256: resources.voiceSha256 ?? null, adapter: await digest('orchestrator/src/production/voice-runtime.py') }, ['import', 'facts'], async (dir):Promise<StageResult> => {
+    await E.stage('voice-acquire', { narration: imp.data.narrationSha256, policy: { seed: c.voice.seed, emoAlpha: c.voice.emoAlpha, inference: c.voice.inference, rhythm: c.voice.rhythm }, profile: await ref(c.voice.profileRef), resources: await resourceRef('voice'), voiceSha256: resources.voiceSha256 ?? null, execution: { device: c.voice.device, precision: c.voice.precision, cpu: c.voice.cpu, modelSource: c.paths.ttsModelSource, modelDirectory: c.paths.ttsModelDirectory }, adapter: await digest('orchestrator/src/production/voice-runtime.py'), cpuAdapter: await digest('orchestrator/src/production/cpu-voice.py'), cpuRunner: await digest('experiments/indextts-cpu/run.py'), cpuGuard: await digest('experiments/local-video-recovery/cpu-reference-decode.py'), finiteObserver: await digest('orchestrator/src/production/tts-finite-observer.py') }, ['import', 'facts'], async (dir):Promise<StageResult> => {
         if (resources.voice) {
             const voice = resolve(root, resources.voice);
             if (resources.legacy) {
@@ -91,7 +92,7 @@ try {
         }
         const generated = await generateVoice(dir, c, rhythm, E.state.stages['voice-acquire'].fingerprint);
         await save(dir + '/synthesis-audit.json', generated.audit);
-        return { artifacts: { voice: generated.voice, audit: dir + '/synthesis-audit.json' }, data: { voiceSha256: await digest(generated.voice), acquisition: 'existing_approved_IndexTTS2_service' } };
+        return { artifacts: { voice: generated.voice, audit: dir + '/synthesis-audit.json' }, data: { voiceSha256: await digest(generated.voice), acquisition: 'existing_IndexTTS2_CPU_FP32' } };
     });
     await E.stage('voice', { acquisition: E.state.stages['voice-acquire']?.fingerprint, resources: await resourceRef('voicedScript', 'captions', 'srt'), code: await digest('orchestrator/src/production/voice.ts') }, ['voice-acquire'], async (dir):Promise<StageResult> => {
         const voice = E.file('voice-acquire', 'voice');
@@ -124,11 +125,12 @@ try {
         const cat = await read(resources.assetCatalog);
         externalAssetRefs = await Promise.all(cat.assets.map(async (a: any) => ({ file: await ref(a.localPath), frames: await Promise.all(a.analysis.frameEvidence.map((f: any) => ref(f.path))) })));
     }
-    await E.stage('assets', { brief: E.state.stages.brief?.fingerprint, resources: await resourceRef('assetCatalog', 'assetMatches', 'assetProposal'), media: externalAssetRefs }, ['brief'], async (dir):Promise<StageResult> => {
+    const libraryConfig = await read(c.assets.libraryConfigRef);
+    await E.stage('assets', { library: resources.assetCatalog ? null : await ref(libraryConfig.indexPath), libraryPolicy: await ref(c.assets.libraryConfigRef), networkPolicy: c.assets.networkConfigRef ? await ref(c.assets.networkConfigRef) : null, networkCode: await ref('orchestrator/src/asset-library/network.py'), libraryCode: await ref('orchestrator/src/asset-library/library.py'), libraryAdapter: await ref('orchestrator/src/production/asset-library.ts'), brief: E.state.stages.brief?.fingerprint, resources: await resourceRef('assetCatalog', 'assetMatches', 'assetProposal'), media: externalAssetRefs }, ['brief'], async (dir):Promise<StageResult> => {
         if (!resources.assetCatalog || !resources.assetMatches) {
-            const gaps = script.shots.map((s: any) => ({ shotNumber: s.shotNumber, narration: s.narration, need: s.visualDescription, reason: 'No supplied verified actual-frame catalog/match; no unattended stock acquisition or vision service configured' }));
-            await save(dir + '/asset-proposal.json', { mode: 'rules', modelUsed: null, recommendations: [], gaps });
-            throw new Blocked('ASSET_GAPS', 'Use existing acquisition/real recording + frame inspection, then supply Asset/AssetMatch JSON; no unrelated filler', gaps);
+            const voiced = ['COMPLETE','REUSED','IMPORTED_CACHE'].includes(E.state.stages.voice?.status) ? await read(E.file('voice','voiced')) : null;
+            const proposal = await localAssetProposal(await read(E.file('brief','brief')),voiced,c,dir);
+            throw new Blocked(proposal.gaps.length ? 'ASSET_GAPS' : 'DIRECTOR_SECOND_ARRANGEMENT', 'Local-first proposal saved. Director must inspect matches/crop/readability, fulfill specific gaps and bind actual Asset/AssetMatch resources before resume; no automatic filler/download.', proposal.gaps.length ? proposal.gaps : [dir+'/asset-proposal.json']);
         }
         const assets = await validateCatalog(resources.assetCatalog);
         const rawMatches = await read(resources.assetMatches), matches = Array.isArray(rawMatches) ? rawMatches : rawMatches.matches;

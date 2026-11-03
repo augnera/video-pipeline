@@ -1,43 +1,85 @@
-# 依赖与构建产物
+# Node 依赖、构建及测试产物
 node_modules/
 dist/
+build/
+coverage/
+.nyc_output/
+*.tsbuildinfo
 
-# 密钥 (C4: 不入库)
+# Python 虚拟环境、字节码及工具缓存
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# 密钥、环境变量及机器专用配置（示例模板可以提交）
 .env
+.env.*
+!.env.example
+.envrc
+*.local.json
+*.local.yaml
+*.local.yml
+/orchestrator/config/production.local.json
+.aws/
+.ssh/
+.gnupg/
 
-# 生产产物 (文件系统即状态存储, 但不入库)
-orchestrator/output/*
-!orchestrator/output/.gitkeep
+# 本机 Agent / IDE 配置
+/.codex/
+/.agents/
+/.vscode/
+/.idea/
+*.code-workspace
 
-# 大体积素材与模型 (docker 卷 / 人工放置)
+# 生成结果与流水线状态：保留输出目录占位文件
+/orchestrator/output/*
+!/orchestrator/output/.gitkeep
+
+# 本地原始素材、私人声音、模型及创作输入
+/local-assets/
 models/
 voice-ref/
-orchestrator/base/*.mp4
+checkpoints/
+/docs/scripts/*.xlsx
+/docs/scripts/*.xls
+/docs/scripts/*.xlsm
 
-*.log
-
-/local-assets/voice/
-
-# Routine production machine paths / local service configuration
-/orchestrator/config/production.local.json
-__pycache__/
-
-# Private source media, rendered staging, and local caches (never publish)
-/local-assets/
+# Remotion 渲染暂存、生成输入及实验缓存
 /experiments/*/public/
 /experiments/**/.cache/
 /experiments/**/out/
 /experiments/**/src/generated/
-.env.*
-!.env.example
-*.local.json
+
+# 运行缓存、临时文件及日志
+.cache/
+.tmp/
+tmp/
+temp/
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+*.swo
+
+# 音视频及模型权重：不随源码上传
 *.wav
 *.mp3
 *.m4a
+*.aac
+*.ogg
 *.mp4
 *.webm
 *.mov
 *.mkv
+*.avi
 *.flac
 *.safetensors
 *.ckpt
@@ -45,5 +87,20 @@ __pycache__/
 *.pt
 *.onnx
 *.gguf
-*.tsbuildinfo
+
+# 操作系统杂项
 .DS_Store
+._*
+Thumbs.db
+Desktop.ini
+
+# 不全局屏蔽 JSON、图片、Excel 或归档：
+# 源码配置、已有测试输入、图标及锁文件引用的小型 vendor 包需要保留。
+
+# CPU-VIDEO-001：独立上游源码、构建工具及本地产物
+/experiments/cpu-video-001/upstream/
+/experiments/cpu-video-001/build-tools/
+/experiments/cpu-video-001/build-cpu/
+/experiments/cpu-video-001/evidence/
+/experiments/cpu-video-001/runs/
+/experiments/cpu-video-001/components.local.json

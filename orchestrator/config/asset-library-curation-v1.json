@@ -1,0 +1,1392 @@
+{
+  "mixkit-39839": {
+    "semanticUses": [
+      "office_work"
+    ],
+    "unsuitableFor": [
+      "实拍露脸，不满足默认不露脸；仅供另行审查裁切"
+    ],
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "composition": {
+      "cropMode": "window",
+      "objectPosition": "38% 50%",
+      "visibleFace": true,
+      "overlayRegions": [],
+      "protectedRegions": [
+        {
+          "x": 0,
+          "y": 0.2,
+          "width": 1,
+          "height": 0.55,
+          "coordinateSpace": "output-normalized",
+          "basis": "conservative central source/body protection; not detected bounding box"
+        },
+        {
+          "x": 0,
+          "y": 0.8583333333333333,
+          "width": 1,
+          "height": 0.08958333333333333,
+          "coordinateSpace": "output-normalized",
+          "basis": "existing production subtitle safe zone"
+        }
+      ],
+      "reviewStatus": "sampled_frames_reviewed_not_human_approved",
+      "reviewedAt": "2026-10-29T09:31:57.715917+00:00",
+      "reviewMethod": "interactive Codex actual view_image of existing contact sheet; no model endpoint; original frame evidence retained",
+      "evidence": "orchestrator/output/asset-library-v1-inspection/existing-evidence-contact.jpg",
+      "limitations": "proposal only; no automated subject/face detector. contain preserves source framing; cover requires fresh review."
+    }
+  },
+  "mixkit-39854": {
+    "semanticUses": [
+      "office_work",
+      "fatigue"
+    ],
+    "unsuitableFor": [
+      "疲惫动作，不代表恢复；头脸需另行裁切审核"
+    ],
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "composition": {
+      "cropMode": "window",
+      "objectPosition": "50% 50%",
+      "visibleFace": true,
+      "overlayRegions": [],
+      "protectedRegions": [
+        {
+          "x": 0,
+          "y": 0.2,
+          "width": 1,
+          "height": 0.55,
+          "coordinateSpace": "output-normalized",
+          "basis": "conservative central source/body protection; not detected bounding box"
+        },
+        {
+          "x": 0,
+          "y": 0.8583333333333333,
+          "width": 1,
+          "height": 0.08958333333333333,
+          "coordinateSpace": "output-normalized",
+          "basis": "existing production subtitle safe zone"
+        }
+      ],
+      "reviewStatus": "sampled_frames_reviewed_not_human_approved",
+      "reviewedAt": "2026-10-29T09:31:57.715917+00:00",
+      "reviewMethod": "interactive Codex actual view_image of existing contact sheet; no model endpoint; original frame evidence retained",
+      "evidence": "orchestrator/output/asset-library-v1-inspection/existing-evidence-contact.jpg",
+      "limitations": "proposal only; no automated subject/face detector. contain preserves source framing; cover requires fresh review."
+    }
+  },
+  "ai-night-desk-v1": {
+    "semanticUses": [
+      "night_work",
+      "office_work"
+    ],
+    "unsuitableFor": [
+      "AI静态图不能称为真实动态素材"
+    ],
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "composition": {
+      "cropMode": "cover",
+      "objectPosition": "50% 50%",
+      "visibleFace": false,
+      "overlayRegions": [
+        {
+          "x": 0.1,
+          "y": 0.08,
+          "width": 0.8,
+          "height": 0.16,
+          "coordinateSpace": "output-normalized",
+          "basis": "contain/letterbox layout, outside central source image; needs actual output-frame recheck",
+          "status": "proposed"
+        }
+      ],
+      "protectedRegions": [
+        {
+          "x": 0,
+          "y": 0.2,
+          "width": 1,
+          "height": 0.55,
+          "coordinateSpace": "output-normalized",
+          "basis": "conservative central source/body protection; not detected bounding box"
+        },
+        {
+          "x": 0,
+          "y": 0.8583333333333333,
+          "width": 1,
+          "height": 0.08958333333333333,
+          "coordinateSpace": "output-normalized",
+          "basis": "existing production subtitle safe zone"
+        }
+      ],
+      "reviewStatus": "sampled_frames_reviewed_not_human_approved",
+      "reviewedAt": "2026-10-29T09:31:57.715917+00:00",
+      "reviewMethod": "interactive Codex actual view_image of existing contact sheet; no model endpoint; original frame evidence retained",
+      "evidence": "orchestrator/output/asset-library-v1-inspection/existing-evidence-contact.jpg",
+      "limitations": "proposal only; no automated subject/face detector. contain preserves source framing; cover requires fresh review."
+    }
+  },
+  "local-opinion-card-v1": {
+    "semanticUses": [
+      "feature_accumulation"
+    ],
+    "unsuitableFor": [
+      "含原有标题和配音，复用须静音；不能解释身体恢复"
+    ],
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "composition": {
+      "cropMode": "contain",
+      "objectPosition": "50% 50%",
+      "visibleFace": false,
+      "overlayRegions": [],
+      "protectedRegions": [
+        {
+          "x": 0,
+          "y": 0.2,
+          "width": 1,
+          "height": 0.55,
+          "coordinateSpace": "output-normalized",
+          "basis": "conservative central source/body protection; not detected bounding box"
+        },
+        {
+          "x": 0,
+          "y": 0.8583333333333333,
+          "width": 1,
+          "height": 0.08958333333333333,
+          "coordinateSpace": "output-normalized",
+          "basis": "existing production subtitle safe zone"
+        }
+      ],
+      "reviewStatus": "sampled_frames_reviewed_not_human_approved",
+      "reviewedAt": "2026-10-29T09:31:57.715917+00:00",
+      "reviewMethod": "interactive Codex actual view_image of existing contact sheet; no model endpoint; original frame evidence retained",
+      "evidence": "orchestrator/output/asset-library-v1-inspection/existing-evidence-contact.jpg",
+      "limitations": "proposal only; no automated subject/face detector. contain preserves source framing; cover requires fresh review."
+    }
+  },
+  "mixkit-1781": {
+    "semanticUses": [
+      "keyboard_work"
+    ],
+    "unsuitableFor": [
+      "通用打字不是AI产品演示；主体需contain或窗口保全"
+    ],
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "composition": {
+      "cropMode": "contain",
+      "objectPosition": "50% 50%",
+      "visibleFace": false,
+      "overlayRegions": [
+        {
+          "x": 0.1,
+          "y": 0.08,
+          "width": 0.8,
+          "height": 0.1,
+          "coordinateSpace": "output-normalized",
+          "basis": "contain/letterbox layout, outside central source image; needs actual output-frame recheck",
+          "status": "proposed"
+        }
+      ],
+      "protectedRegions": [
+        {
+          "x": 0,
+          "y": 0.2,
+          "width": 1,
+          "height": 0.55,
+          "coordinateSpace": "output-normalized",
+          "basis": "conservative central source/body protection; not detected bounding box"
+        },
+        {
+          "x": 0,
+          "y": 0.8583333333333333,
+          "width": 1,
+          "height": 0.08958333333333333,
+          "coordinateSpace": "output-normalized",
+          "basis": "existing production subtitle safe zone"
+        }
+      ],
+      "reviewStatus": "sampled_frames_reviewed_not_human_approved",
+      "reviewedAt": "2026-10-29T09:31:57.715917+00:00",
+      "reviewMethod": "interactive Codex actual view_image of existing contact sheet; no model endpoint; original frame evidence retained",
+      "evidence": "orchestrator/output/asset-library-v1-inspection/existing-evidence-contact.jpg",
+      "limitations": "proposal only; no automated subject/face detector. contain preserves source framing; cover requires fresh review.",
+      "rendererCompatibility": "RoutineRoot live_action currently hardcodes cover; contain is a Director proposal, requires a SHA-bound prepared portrait derivative or later renderer wiring. Not production-verified by this task."
+    }
+  },
+  "mixkit-4938": {
+    "semanticUses": [
+      "keyboard_work"
+    ],
+    "unsuitableFor": [
+      "通用打字不是AI产品演示"
+    ],
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "composition": {
+      "cropMode": "contain",
+      "objectPosition": "50% 50%",
+      "visibleFace": false,
+      "overlayRegions": [
+        {
+          "x": 0.1,
+          "y": 0.08,
+          "width": 0.8,
+          "height": 0.1,
+          "coordinateSpace": "output-normalized",
+          "basis": "contain/letterbox layout, outside central source image; needs actual output-frame recheck",
+          "status": "proposed"
+        }
+      ],
+      "protectedRegions": [
+        {
+          "x": 0,
+          "y": 0.2,
+          "width": 1,
+          "height": 0.55,
+          "coordinateSpace": "output-normalized",
+          "basis": "conservative central source/body protection; not detected bounding box"
+        },
+        {
+          "x": 0,
+          "y": 0.8583333333333333,
+          "width": 1,
+          "height": 0.08958333333333333,
+          "coordinateSpace": "output-normalized",
+          "basis": "existing production subtitle safe zone"
+        }
+      ],
+      "reviewStatus": "sampled_frames_reviewed_not_human_approved",
+      "reviewedAt": "2026-10-29T09:31:57.715917+00:00",
+      "reviewMethod": "interactive Codex actual view_image of existing contact sheet; no model endpoint; original frame evidence retained",
+      "evidence": "orchestrator/output/asset-library-v1-inspection/existing-evidence-contact.jpg",
+      "limitations": "proposal only; no automated subject/face detector. contain preserves source framing; cover requires fresh review.",
+      "rendererCompatibility": "RoutineRoot live_action currently hardcodes cover; contain is a Director proposal, requires a SHA-bound prepared portrait derivative or later renderer wiring. Not production-verified by this task."
+    }
+  },
+  "mixkit-4907": {
+    "semanticUses": [
+      "keyboard_work"
+    ],
+    "unsuitableFor": [
+      "不得声称画面中的具体产品运行效果"
+    ],
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "composition": {
+      "cropMode": "contain",
+      "objectPosition": "50% 50%",
+      "visibleFace": false,
+      "overlayRegions": [
+        {
+          "x": 0.1,
+          "y": 0.08,
+          "width": 0.8,
+          "height": 0.1,
+          "coordinateSpace": "output-normalized",
+          "basis": "contain/letterbox layout, outside central source image; needs actual output-frame recheck",
+          "status": "proposed"
+        }
+      ],
+      "protectedRegions": [
+        {
+          "x": 0,
+          "y": 0.2,
+          "width": 1,
+          "height": 0.55,
+          "coordinateSpace": "output-normalized",
+          "basis": "conservative central source/body protection; not detected bounding box"
+        },
+        {
+          "x": 0,
+          "y": 0.8583333333333333,
+          "width": 1,
+          "height": 0.08958333333333333,
+          "coordinateSpace": "output-normalized",
+          "basis": "existing production subtitle safe zone"
+        }
+      ],
+      "reviewStatus": "sampled_frames_reviewed_not_human_approved",
+      "reviewedAt": "2026-10-29T09:31:57.715917+00:00",
+      "reviewMethod": "interactive Codex actual view_image of existing contact sheet; no model endpoint; original frame evidence retained",
+      "evidence": "orchestrator/output/asset-library-v1-inspection/existing-evidence-contact.jpg",
+      "limitations": "proposal only; no automated subject/face detector. contain preserves source framing; cover requires fresh review.",
+      "rendererCompatibility": "RoutineRoot live_action currently hardcodes cover; contain is a Director proposal, requires a SHA-bound prepared portrait derivative or later renderer wiring. Not production-verified by this task."
+    }
+  },
+  "mixkit-42655": {
+    "semanticUses": [
+      "handwriting"
+    ],
+    "unsuitableFor": [
+      "须保持手和纸完整，不能遮挡笔记；顶部头发不作为主体"
+    ],
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "composition": {
+      "cropMode": "contain",
+      "objectPosition": "50% 70%",
+      "visibleFace": false,
+      "overlayRegions": [
+        {
+          "x": 0.1,
+          "y": 0.08,
+          "width": 0.8,
+          "height": 0.1,
+          "coordinateSpace": "output-normalized",
+          "basis": "contain/letterbox layout, outside central source image; needs actual output-frame recheck",
+          "status": "proposed"
+        }
+      ],
+      "protectedRegions": [
+        {
+          "x": 0,
+          "y": 0.2,
+          "width": 1,
+          "height": 0.55,
+          "coordinateSpace": "output-normalized",
+          "basis": "conservative central source/body protection; not detected bounding box"
+        },
+        {
+          "x": 0,
+          "y": 0.8583333333333333,
+          "width": 1,
+          "height": 0.08958333333333333,
+          "coordinateSpace": "output-normalized",
+          "basis": "existing production subtitle safe zone"
+        }
+      ],
+      "reviewStatus": "sampled_frames_reviewed_not_human_approved",
+      "reviewedAt": "2026-10-29T09:31:57.715917+00:00",
+      "reviewMethod": "interactive Codex actual view_image of existing contact sheet; no model endpoint; original frame evidence retained",
+      "evidence": "orchestrator/output/asset-library-v1-inspection/existing-evidence-contact.jpg",
+      "limitations": "proposal only; no automated subject/face detector. contain preserves source framing; cover requires fresh review.",
+      "rendererCompatibility": "RoutineRoot live_action currently hardcodes cover; contain is a Director proposal, requires a SHA-bound prepared portrait derivative or later renderer wiring. Not production-verified by this task."
+    }
+  },
+  "mixkit-50112": {
+    "semanticUses": [
+      "sticky_notes"
+    ],
+    "unsuitableFor": [
+      "仅0–3.567秒可用，后段有人脸，禁止延伸"
+    ],
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "composition": {
+      "cropMode": "contain",
+      "objectPosition": "50% 50%",
+      "visibleFace": false,
+      "overlayRegions": [
+        {
+          "x": 0.1,
+          "y": 0.08,
+          "width": 0.8,
+          "height": 0.1,
+          "coordinateSpace": "output-normalized",
+          "basis": "contain/letterbox layout, outside central source image; needs actual output-frame recheck",
+          "status": "proposed"
+        }
+      ],
+      "protectedRegions": [
+        {
+          "x": 0,
+          "y": 0.2,
+          "width": 1,
+          "height": 0.55,
+          "coordinateSpace": "output-normalized",
+          "basis": "conservative central source/body protection; not detected bounding box"
+        },
+        {
+          "x": 0,
+          "y": 0.8583333333333333,
+          "width": 1,
+          "height": 0.08958333333333333,
+          "coordinateSpace": "output-normalized",
+          "basis": "existing production subtitle safe zone"
+        }
+      ],
+      "reviewStatus": "sampled_frames_reviewed_not_human_approved",
+      "reviewedAt": "2026-10-29T09:31:57.715917+00:00",
+      "reviewMethod": "interactive Codex actual view_image of existing contact sheet; no model endpoint; original frame evidence retained",
+      "evidence": "orchestrator/output/asset-library-v1-inspection/existing-evidence-contact.jpg",
+      "limitations": "proposal only; no automated subject/face detector. contain preserves source framing; cover requires fresh review.",
+      "rendererCompatibility": "RoutineRoot live_action currently hardcodes cover; contain is a Director proposal, requires a SHA-bound prepared portrait derivative or later renderer wiring. Not production-verified by this task."
+    }
+  },
+  "mixkit-23282": {
+    "semanticUses": [
+      "datacenter"
+    ],
+    "unsuitableFor": [
+      "Restricted仅限私人审阅；非微软内部现场"
+    ],
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "composition": {
+      "cropMode": "contain",
+      "objectPosition": "50% 50%",
+      "visibleFace": false,
+      "overlayRegions": [
+        {
+          "x": 0.1,
+          "y": 0.08,
+          "width": 0.8,
+          "height": 0.1,
+          "coordinateSpace": "output-normalized",
+          "basis": "contain/letterbox layout, outside central source image; needs actual output-frame recheck",
+          "status": "proposed"
+        }
+      ],
+      "protectedRegions": [
+        {
+          "x": 0,
+          "y": 0.2,
+          "width": 1,
+          "height": 0.55,
+          "coordinateSpace": "output-normalized",
+          "basis": "conservative central source/body protection; not detected bounding box"
+        },
+        {
+          "x": 0,
+          "y": 0.8583333333333333,
+          "width": 1,
+          "height": 0.08958333333333333,
+          "coordinateSpace": "output-normalized",
+          "basis": "existing production subtitle safe zone"
+        }
+      ],
+      "reviewStatus": "sampled_frames_reviewed_not_human_approved",
+      "reviewedAt": "2026-10-29T09:31:57.715917+00:00",
+      "reviewMethod": "interactive Codex actual view_image of existing contact sheet; no model endpoint; original frame evidence retained",
+      "evidence": "orchestrator/output/asset-library-v1-inspection/existing-evidence-contact.jpg",
+      "limitations": "proposal only; no automated subject/face detector. contain preserves source framing; cover requires fresh review.",
+      "rendererCompatibility": "RoutineRoot live_action currently hardcodes cover; contain is a Director proposal, requires a SHA-bound prepared portrait derivative or later renderer wiring. Not production-verified by this task."
+    }
+  },
+  "mixkit-7887": {
+    "semanticUses": [
+      "datacenter"
+    ],
+    "unsuitableFor": [
+      "Restricted仅限私人审阅；非微软内部现场"
+    ],
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "composition": {
+      "cropMode": "contain",
+      "objectPosition": "50% 50%",
+      "visibleFace": false,
+      "overlayRegions": [
+        {
+          "x": 0.1,
+          "y": 0.08,
+          "width": 0.8,
+          "height": 0.1,
+          "coordinateSpace": "output-normalized",
+          "basis": "contain/letterbox layout, outside central source image; needs actual output-frame recheck",
+          "status": "proposed"
+        }
+      ],
+      "protectedRegions": [
+        {
+          "x": 0,
+          "y": 0.2,
+          "width": 1,
+          "height": 0.55,
+          "coordinateSpace": "output-normalized",
+          "basis": "conservative central source/body protection; not detected bounding box"
+        },
+        {
+          "x": 0,
+          "y": 0.8583333333333333,
+          "width": 1,
+          "height": 0.08958333333333333,
+          "coordinateSpace": "output-normalized",
+          "basis": "existing production subtitle safe zone"
+        }
+      ],
+      "reviewStatus": "sampled_frames_reviewed_not_human_approved",
+      "reviewedAt": "2026-10-29T09:31:57.715917+00:00",
+      "reviewMethod": "interactive Codex actual view_image of existing contact sheet; no model endpoint; original frame evidence retained",
+      "evidence": "orchestrator/output/asset-library-v1-inspection/existing-evidence-contact.jpg",
+      "limitations": "proposal only; no automated subject/face detector. contain preserves source framing; cover requires fresh review.",
+      "rendererCompatibility": "RoutineRoot live_action currently hardcodes cover; contain is a Director proposal, requires a SHA-bound prepared portrait derivative or later renderer wiring. Not production-verified by this task."
+    }
+  },
+  "work-editor": {
+    "semanticUses": [
+      "screen_recording",
+      "document_editing",
+      "code_editing"
+    ],
+    "unsuitableFor": [
+      "本期文档练习录屏，不是AI运行、非真实用户交付；复用前检查微软专属文字"
+    ],
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "composition": {
+      "cropMode": "contain",
+      "objectPosition": "50% 50%",
+      "visibleFace": false,
+      "overlayRegions": [],
+      "protectedRegions": [
+        {
+          "x": 0,
+          "y": 0.07,
+          "width": 1,
+          "height": 0.78,
+          "coordinateSpace": "output-normalized",
+          "basis": "Existing screen_recording viewport top140/height1460; preserve UI until actual output inspection"
+        },
+        {
+          "x": 0,
+          "y": 0.8583333333333333,
+          "width": 1,
+          "height": 0.08958333333333333,
+          "coordinateSpace": "output-normalized",
+          "basis": "subtitle safe zone"
+        }
+      ],
+      "reviewStatus": "sampled_frames_reviewed_not_human_approved",
+      "reviewedAt": "2026-10-29T09:31:57.715917+00:00",
+      "reviewMethod": "interactive Codex actual view_image of existing contact sheet; no model endpoint; original frame evidence retained",
+      "evidence": "orchestrator/output/asset-library-v1-inspection/existing-evidence-contact.jpg",
+      "limitations": "proposal only; no automated subject/face detector. contain preserves source framing; cover requires fresh review."
+    }
+  },
+  "official-veo": {
+    "semanticUses": [
+      "microsoft_veo_news"
+    ],
+    "unsuitableFor": [
+      "新闻特定事件，无通用公开复用许可"
+    ],
+    "scope": "news_event",
+    "scopeEpisodeId": "microsoft-veo-skills-20261028",
+    "composition": {
+      "cropMode": "contain",
+      "objectPosition": "50% 50%",
+      "visibleFace": false,
+      "overlayRegions": [],
+      "protectedRegions": [
+        {
+          "x": 0,
+          "y": 0.2,
+          "width": 1,
+          "height": 0.55,
+          "coordinateSpace": "output-normalized",
+          "basis": "conservative central source/body protection; not detected bounding box"
+        },
+        {
+          "x": 0,
+          "y": 0.8583333333333333,
+          "width": 1,
+          "height": 0.08958333333333333,
+          "coordinateSpace": "output-normalized",
+          "basis": "existing production subtitle safe zone"
+        }
+      ],
+      "reviewStatus": "sampled_frames_reviewed_not_human_approved",
+      "reviewedAt": "2026-10-29T09:31:57.715917+00:00",
+      "reviewMethod": "interactive Codex actual view_image of existing contact sheet; no model endpoint; original frame evidence retained",
+      "evidence": "orchestrator/output/asset-library-v1-inspection/existing-evidence-contact.jpg",
+      "limitations": "proposal only; no automated subject/face detector. contain preserves source framing; cover requires fresh review."
+    }
+  },
+  "annual-report": {
+    "semanticUses": [
+      "annual_report"
+    ],
+    "unsuitableFor": [
+      "年报特定年份，无通用公开复用许可"
+    ],
+    "scope": "news_event",
+    "scopeEpisodeId": "microsoft-veo-skills-20261028",
+    "composition": {
+      "cropMode": "contain",
+      "objectPosition": "50% 50%",
+      "visibleFace": false,
+      "overlayRegions": [],
+      "protectedRegions": [
+        {
+          "x": 0,
+          "y": 0.2,
+          "width": 1,
+          "height": 0.55,
+          "coordinateSpace": "output-normalized",
+          "basis": "conservative central source/body protection; not detected bounding box"
+        },
+        {
+          "x": 0,
+          "y": 0.8583333333333333,
+          "width": 1,
+          "height": 0.08958333333333333,
+          "coordinateSpace": "output-normalized",
+          "basis": "existing production subtitle safe zone"
+        }
+      ],
+      "reviewStatus": "sampled_frames_reviewed_not_human_approved",
+      "reviewedAt": "2026-10-29T09:31:57.715917+00:00",
+      "reviewMethod": "interactive Codex actual view_image of existing contact sheet; no model endpoint; original frame evidence retained",
+      "evidence": "orchestrator/output/asset-library-v1-inspection/existing-evidence-contact.jpg",
+      "limitations": "proposal only; no automated subject/face detector. contain preserves source framing; cover requires fresh review."
+    }
+  },
+  "pixabay-215751": {
+    "semanticUses": [
+      "night_work",
+      "office_work",
+      "keyboard_work"
+    ],
+    "unsuitableFor": [
+      "不是实际产品部署或AI报告生成操作。",
+      "原始人脸版本不满足默认不露脸，必须使用绑定裁切。"
+    ],
+    "acquiredAt": "2026-10-29T11:41:26.836657+00:00",
+    "acquisitionBasis": "orchestrator/output/asset-network-supplement-v1/pixabay-215751-acquisition.json; visual stream-copy remux, not remote original byte copy",
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "requiredDisclosures": [],
+    "composition": {
+      "cropMode": "contain",
+      "objectPosition": "50% 50%",
+      "visibleFace": true,
+      "preparedMedia": {
+        "path": "orchestrator/output/asset-network-supplement-v1/pixabay-215751-portrait.mp4",
+        "sha256": "3a4928b3b3cebda73df06ce42d8019de2a2d3f668dd33a1cc9e69007363806bd",
+        "sourceSha256": "140042fd511dcb5f1415cb079b2158597e7ae619bb8b3e3be349a9c7a1301895",
+        "sourceClockOriginSeconds": 0,
+        "sourceCoverage": {
+          "start": 0,
+          "end": 4
+        },
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "durationSeconds": 4,
+        "durationFrames": 120,
+        "visibleFace": false,
+        "faceReviewScope": "actual 8 sampled prepared frames + conservative geometric crop; no full-video face detector or final human acceptance",
+        "technicalStatus": "VERIFIED",
+        "contentRect": {
+          "x": 0,
+          "y": 728,
+          "width": 1080,
+          "height": 464
+        },
+        "frameEvidence": [
+          {
+            "path": "orchestrator/output/asset-network-supplement-v1/portrait-215751-frames/0.jpg",
+            "timestampSeconds": 0.0,
+            "sha256": "e492b382b2888429290f05a4a1146ade2298172b7b46b142b07a8252be13baad"
+          },
+          {
+            "path": "orchestrator/output/asset-network-supplement-v1/portrait-215751-frames/1.jpg",
+            "timestampSeconds": 0.5,
+            "sha256": "20b83b49a9708553b3791ec401fb8a5d11ef6cee5e0f12625150da3e443fd599"
+          },
+          {
+            "path": "orchestrator/output/asset-network-supplement-v1/portrait-215751-frames/2.jpg",
+            "timestampSeconds": 1.0,
+            "sha256": "c2f4b4d2a41b0cfc2d269536f919fc9a9b86150b280c0a3f6dbcb3b05921563b"
+          },
+          {
+            "path": "orchestrator/output/asset-network-supplement-v1/portrait-215751-frames/3.jpg",
+            "timestampSeconds": 1.5,
+            "sha256": "134de0e7be312a6791dc963df3cc695553df7689dbc38b40e1ffd028b646fea3"
+          },
+          {
+            "path": "orchestrator/output/asset-network-supplement-v1/portrait-215751-frames/4.jpg",
+            "timestampSeconds": 2.0,
+            "sha256": "64f1598a041abeb3a5e37d580d8a1c135fc2758dee9a4c29ea1f929f714f3f11"
+          },
+          {
+            "path": "orchestrator/output/asset-network-supplement-v1/portrait-215751-frames/5.jpg",
+            "timestampSeconds": 2.5,
+            "sha256": "3ac45473fee0010a2c9290c224182fb92c6a18a1f937cb5a7ed28cd9de352269"
+          },
+          {
+            "path": "orchestrator/output/asset-network-supplement-v1/portrait-215751-frames/6.jpg",
+            "timestampSeconds": 3.0,
+            "sha256": "f8dcd1c55c7dd2dbe214f968a8e7872f08526ca699ba5bdd5aba1318924c2c92"
+          },
+          {
+            "path": "orchestrator/output/asset-network-supplement-v1/portrait-215751-frames/7.jpg",
+            "timestampSeconds": 3.5,
+            "sha256": "ad6cfb21ada3d1f7e88936762bb2b84d39093107d98828ec28c144db216a8b3d"
+          }
+        ]
+      },
+      "sourceCropRect": {
+        "x": 300,
+        "y": 500,
+        "width": 1350,
+        "height": 580
+      },
+      "overlayRegions": [
+        {
+          "x": 0.08,
+          "y": 0.08,
+          "width": 0.84,
+          "height": 0.1,
+          "coordinateSpace": "output-normalized",
+          "status": "sampled_prepared_frames_checked",
+          "basis": "实际1080×1920准备片的上方蓝紫留白；不覆盖主体或字幕"
+        }
+      ],
+      "protectedRegions": [
+        {
+          "x": 0.0,
+          "y": 0.37916666666666665,
+          "width": 1.0,
+          "height": 0.24166666666666667,
+          "coordinateSpace": "output-normalized",
+          "basis": "实际合成中原片内容区保留"
+        },
+        {
+          "x": 0,
+          "y": 0.8583333333333333,
+          "width": 1,
+          "height": 0.08958333333333333,
+          "coordinateSpace": "output-normalized",
+          "basis": "字幕安全区域"
+        }
+      ],
+      "reviewStatus": "actual_composition_sampled_not_owner_approved",
+      "reviewedAt": "2026-10-29T11:48:07.923956+00:00",
+      "reviewMethod": "CPU software FFmpeg output actually viewed; no detector/vision endpoint",
+      "evidence": "orchestrator/output/asset-network-supplement-v1/portrait-contact.jpg",
+      "limitations": "主体/字形基于实际抽帧，完整运动自然度与持有人视觉验收NOT_EVALUATED。"
+    }
+  },
+  "pixabay-26213": {
+    "semanticUses": [
+      "actual_microsoft_exterior"
+    ],
+    "unsuitableFor": [
+      "不是实际产品部署或AI报告生成操作。",
+      "不是本次VEO事件发生现场，不冒称Redmond总部。"
+    ],
+    "acquiredAt": "2026-10-29T11:41:30.589457+00:00",
+    "acquisitionBasis": "orchestrator/output/asset-network-supplement-v1/pixabay-26213-acquisition.json; visual stream-copy remux, not remote original byte copy",
+    "scope": "news_event",
+    "scopeEpisodeId": "microsoft-veo-skills-20261028",
+    "requiredDisclosures": [
+      "资料：布加勒斯特｜2019年发布（已嵌入本次准备片）"
+    ],
+    "composition": {
+      "cropMode": "contain",
+      "objectPosition": "50% 50%",
+      "visibleFace": false,
+      "preparedMedia": {
+        "path": "orchestrator/output/asset-network-supplement-v1/pixabay-26213-portrait-disclosed.mp4",
+        "sha256": "232b2c6c6dddf3b52cee85955ad19ef976cb70f8846415514bf0a1235d524d1a",
+        "sourceSha256": "6b557194def4748d5b697a850432bad3a901a94dbba54a2f026db19198272958",
+        "sourceClockOriginSeconds": 0,
+        "sourceCoverage": {
+          "start": 0,
+          "end": 3
+        },
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "durationSeconds": 3,
+        "durationFrames": 90,
+        "visibleFace": false,
+        "faceReviewScope": "actual 8 sampled prepared frames + conservative geometric crop; no full-video face detector or final human acceptance",
+        "technicalStatus": "VERIFIED",
+        "contentRect": {
+          "x": 0,
+          "y": 656,
+          "width": 1080,
+          "height": 608
+        },
+        "frameEvidence": [
+          {
+            "path": "orchestrator/output/asset-network-supplement-v1/portrait-26213-frames/0.jpg",
+            "timestampSeconds": 0.0,
+            "sha256": "db68d02d3ac5fa625c2bc5f96a519248c6093c1d3abfe8bbaf8263d58aaa9c4b"
+          },
+          {
+            "path": "orchestrator/output/asset-network-supplement-v1/portrait-26213-frames/1.jpg",
+            "timestampSeconds": 0.375,
+            "sha256": "d3e6a467878de769bdbd74019818a166543c1e5475d5cc58aaa6eeb940249de7"
+          },
+          {
+            "path": "orchestrator/output/asset-network-supplement-v1/portrait-26213-frames/2.jpg",
+            "timestampSeconds": 0.75,
+            "sha256": "8f999be05777530fc6e9474de881801d47a1018697035884fa5f746e8f4d44ca"
+          },
+          {
+            "path": "orchestrator/output/asset-network-supplement-v1/portrait-26213-frames/3.jpg",
+            "timestampSeconds": 1.125,
+            "sha256": "88ae83c303c9522f8ffd100dc7e006fe906b67d2680246597952d00cf481f9e9"
+          },
+          {
+            "path": "orchestrator/output/asset-network-supplement-v1/portrait-26213-frames/4.jpg",
+            "timestampSeconds": 1.5,
+            "sha256": "83c5ed29cec2cba1153dcef2656a126e976fc885dd71d69634bbd1f0d9ce8f7e"
+          },
+          {
+            "path": "orchestrator/output/asset-network-supplement-v1/portrait-26213-frames/5.jpg",
+            "timestampSeconds": 1.875,
+            "sha256": "17193efacab75eec117ead25178a2369ea0f064ec9163b944d880c859851850d"
+          },
+          {
+            "path": "orchestrator/output/asset-network-supplement-v1/portrait-26213-frames/6.jpg",
+            "timestampSeconds": 2.25,
+            "sha256": "e15c357fee36d6f401d001212f6105b34842f5423737b37c5536820e742ac13a"
+          },
+          {
+            "path": "orchestrator/output/asset-network-supplement-v1/portrait-26213-frames/7.jpg",
+            "timestampSeconds": 2.625,
+            "sha256": "3b768c614366acacba450c0b5bca8f43722874f5b79d9b6b4f93bab711b9ccae"
+          }
+        ]
+      },
+      "sourceCropRect": null,
+      "overlayRegions": [
+        {
+          "x": 0.08,
+          "y": 0.08,
+          "width": 0.84,
+          "height": 0.1,
+          "coordinateSpace": "output-normalized",
+          "status": "sampled_prepared_frames_checked",
+          "basis": "实际1080×1920准备片的上方蓝紫留白；不覆盖主体或字幕"
+        }
+      ],
+      "protectedRegions": [
+        {
+          "x": 0.0,
+          "y": 0.3416666666666667,
+          "width": 1.0,
+          "height": 0.31666666666666665,
+          "coordinateSpace": "output-normalized",
+          "basis": "实际合成中原片内容区保留"
+        },
+        {
+          "x": 0,
+          "y": 0.8583333333333333,
+          "width": 1,
+          "height": 0.08958333333333333,
+          "coordinateSpace": "output-normalized",
+          "basis": "字幕安全区域"
+        },
+        {
+          "x": 0.1,
+          "y": 0.23,
+          "width": 0.8,
+          "height": 0.04,
+          "coordinateSpace": "output-normalized",
+          "basis": "历史资料披露文字区"
+        }
+      ],
+      "reviewStatus": "actual_composition_sampled_not_owner_approved",
+      "reviewedAt": "2026-10-29T11:48:07.923956+00:00",
+      "reviewMethod": "CPU software FFmpeg output actually viewed; no detector/vision endpoint",
+      "evidence": "orchestrator/output/asset-network-supplement-v1/portrait-contact.jpg",
+      "limitations": "主体/字形基于实际抽帧，完整运动自然度与持有人视觉验收NOT_EVALUATED。"
+    }
+  },
+  "coverr-rXf1Hyrfkk": {
+    "aliases": [],
+    "catalogEvidence": [],
+    "acquiredAt": "2026-11-02T15:30:41.026013+00:00",
+    "acquisitionBasis": "本期真实网络下载或浏览器录屏/持有人提供，细节见本期sources及acquisitions",
+    "semanticUses": [
+      "code_editing",
+      "office_work"
+    ],
+    "unsuitableFor": [],
+    "composition": {
+      "cropMode": "cover",
+      "objectPosition": "50% 50%",
+      "overlayRegions": [],
+      "protectedRegions": [],
+      "reviewStatus": "sampled_layout_inspected_not_holder_approved",
+      "visibleFace": false,
+      "evidence": "orchestrator/output/ai-programming-20261102/previews",
+      "preparedMedia": {
+        "assetId": "coverr-rXf1Hyrfkk",
+        "path": "orchestrator/output/ai-programming-20261102/prepared-media/coverr-rXf1Hyrfkk-portrait.mp4",
+        "sha256": "9af15c458ef9e3b0acbe56b9de8bb06d5d06b1b39db6c2658fb21de41fdde902",
+        "sourceSha256": "5dc3bd9f78d40758442e1698e188e2b3f40a1114ae8700912e6110cf3f8cc2f1",
+        "sourceClockOriginSeconds": 0,
+        "sourceCoverage": {
+          "start": 0,
+          "end": 14.879948
+        },
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "technicalStatus": "VERIFIED",
+        "probe": {
+          "width": 1080,
+          "height": 1920,
+          "durationSeconds": 15.066667,
+          "fps": 30.0
+        },
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-hwaccel",
+          "none",
+          "-threads",
+          "1",
+          "-i",
+          "/home/chen/work/video-pipeline/local-assets/library/network-media/5dc3bd9f78d40758442e1698e188e2b3f40a1114ae8700912e6110cf3f8cc2f1.mp4",
+          "-an",
+          "-vf",
+          "scale=-2:1920,crop=1080:1920:(iw-1080)*0.5:0,setsar=1,fps=30",
+          "-c:v",
+          "libx264",
+          "-preset",
+          "veryfast",
+          "-crf",
+          "19",
+          "-pix_fmt",
+          "yuv420p",
+          "-threads",
+          "2",
+          "/home/chen/work/video-pipeline/orchestrator/output/ai-programming-20261102/prepared-media/coverr-rXf1Hyrfkk-portrait.mp4"
+        ],
+        "preview": "orchestrator/output/ai-programming-20261102/previews/coverr-rXf1Hyrfkk-portrait.jpg",
+        "cropPosition": "50.0% 50%",
+        "visibleFace": false
+      }
+    },
+    "publicRights": {
+      "status": "pending",
+      "evidence": [],
+      "verifiedAt": null
+    },
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "integrityIssues": []
+  },
+  "coverr-wP9S7bGc77": {
+    "aliases": [],
+    "catalogEvidence": [],
+    "acquiredAt": "2026-11-02T15:30:41.140190+00:00",
+    "acquisitionBasis": "本期真实网络下载或浏览器录屏/持有人提供，细节见本期sources及acquisitions",
+    "semanticUses": [
+      "office_work",
+      "keyboard_work"
+    ],
+    "unsuitableFor": [],
+    "composition": {
+      "cropMode": "cover",
+      "objectPosition": "50% 50%",
+      "overlayRegions": [],
+      "protectedRegions": [],
+      "reviewStatus": "sampled_layout_inspected_not_holder_approved",
+      "visibleFace": false,
+      "evidence": "orchestrator/output/ai-programming-20261102/previews",
+      "preparedMedia": {
+        "assetId": "coverr-wP9S7bGc77",
+        "path": "orchestrator/output/ai-programming-20261102/prepared-media/coverr-wP9S7bGc77-portrait-v2.mp4",
+        "sha256": "89e6d425011eaf2e98fde27e4f1f1ab28c3d5ea05c5044241f102cb1af71a1bc",
+        "sourceSha256": "b2a1aa841971ff71bb2ee8ef50c3876184d7cc4f537464f859812c9c47fb8dc1",
+        "sourceClockOriginSeconds": 0,
+        "sourceCoverage": {
+          "start": 0,
+          "end": 14.133333
+        },
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "technicalStatus": "VERIFIED",
+        "probe": {
+          "width": 1080,
+          "height": 1920,
+          "durationSeconds": 14.333333,
+          "fps": 30.0
+        },
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-hwaccel",
+          "none",
+          "-threads",
+          "1",
+          "-i",
+          "/home/chen/work/video-pipeline/local-assets/library/network-media/b2a1aa841971ff71bb2ee8ef50c3876184d7cc4f537464f859812c9c47fb8dc1.mp4",
+          "-an",
+          "-vf",
+          "scale=-2:1920,crop=1080:1920:(iw-1080)*0.25:0,setsar=1,fps=30",
+          "-c:v",
+          "libx264",
+          "-preset",
+          "veryfast",
+          "-crf",
+          "19",
+          "-pix_fmt",
+          "yuv420p",
+          "-threads",
+          "2",
+          "/home/chen/work/video-pipeline/orchestrator/output/ai-programming-20261102/prepared-media/coverr-wP9S7bGc77-portrait-v2.mp4"
+        ],
+        "preview": "orchestrator/output/ai-programming-20261102/previews/coverr-wP9S7bGc77-portrait.jpg",
+        "cropPosition": "25% 50%",
+        "repair": {
+          "attempt": 1,
+          "reason": "center crop loses hand/interaction, source-left crop preserves subject",
+          "before": "orchestrator/output/ai-programming-20261102/prepared-media/coverr-wP9S7bGc77-portrait.mp4",
+          "beforeSha256": "1124e5396ac6f1376073f26978c3a6de711f4dcc099f662578add8d098083433"
+        },
+        "visibleFace": false
+      }
+    },
+    "publicRights": {
+      "status": "pending",
+      "evidence": [],
+      "verifiedAt": null
+    },
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "integrityIssues": []
+  },
+  "pixabay-1028": {
+    "aliases": [],
+    "catalogEvidence": [],
+    "acquiredAt": "2026-11-02T15:30:41.252061+00:00",
+    "acquisitionBasis": "本期真实网络下载或浏览器录屏/持有人提供，细节见本期sources及acquisitions",
+    "semanticUses": [
+      "learning",
+      "office_work"
+    ],
+    "unsuitableFor": [],
+    "composition": {
+      "cropMode": "cover",
+      "objectPosition": "50% 50%",
+      "overlayRegions": [],
+      "protectedRegions": [],
+      "reviewStatus": "sampled_layout_inspected_not_holder_approved",
+      "visibleFace": true,
+      "evidence": "orchestrator/output/ai-programming-20261102/previews",
+      "preparedMedia": {
+        "assetId": "pixabay-1028",
+        "path": "orchestrator/output/ai-programming-20261102/prepared-media/pixabay-1028-portrait.mp4",
+        "sha256": "47edf6720361a7e8b1d58477e9373a40a6ced5aa70dabcb13824e29e41be48af",
+        "sourceSha256": "492099fcc69d603e01297abd0ffc1aac83adbf08864d5ffa33308e186bd2f1c6",
+        "sourceClockOriginSeconds": 0,
+        "sourceCoverage": {
+          "start": 0,
+          "end": 11.32
+        },
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "technicalStatus": "VERIFIED",
+        "probe": {
+          "width": 1080,
+          "height": 1920,
+          "durationSeconds": 11.533333,
+          "fps": 30.0
+        },
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-hwaccel",
+          "none",
+          "-threads",
+          "1",
+          "-i",
+          "/home/chen/work/video-pipeline/local-assets/library/network-media/492099fcc69d603e01297abd0ffc1aac83adbf08864d5ffa33308e186bd2f1c6.mp4",
+          "-an",
+          "-vf",
+          "scale=-2:1920,crop=1080:1920:(iw-1080)*0.75:0,setsar=1,fps=30",
+          "-c:v",
+          "libx264",
+          "-preset",
+          "veryfast",
+          "-crf",
+          "19",
+          "-pix_fmt",
+          "yuv420p",
+          "-threads",
+          "2",
+          "/home/chen/work/video-pipeline/orchestrator/output/ai-programming-20261102/prepared-media/pixabay-1028-portrait.mp4"
+        ],
+        "preview": "orchestrator/output/ai-programming-20261102/previews/pixabay-1028-portrait.jpg",
+        "cropPosition": "75.0% 50%",
+        "visibleFace": true
+      }
+    },
+    "publicRights": {
+      "status": "pending",
+      "evidence": [],
+      "verifiedAt": null
+    },
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "integrityIssues": []
+  },
+  "pixabay-1046": {
+    "aliases": [],
+    "catalogEvidence": [],
+    "acquiredAt": "2026-11-02T15:30:41.360198+00:00",
+    "acquisitionBasis": "本期真实网络下载或浏览器录屏/持有人提供，细节见本期sources及acquisitions",
+    "semanticUses": [
+      "keyboard_work",
+      "office_work"
+    ],
+    "unsuitableFor": [],
+    "composition": {
+      "cropMode": "cover",
+      "objectPosition": "50% 50%",
+      "overlayRegions": [],
+      "protectedRegions": [],
+      "reviewStatus": "sampled_layout_inspected_not_holder_approved",
+      "visibleFace": false,
+      "evidence": "orchestrator/output/ai-programming-20261102/previews",
+      "preparedMedia": {
+        "assetId": "pixabay-1046",
+        "path": "orchestrator/output/ai-programming-20261102/prepared-media/pixabay-1046-portrait.mp4",
+        "sha256": "b482d68d1d9172e1105b807a0edbca83e195f9b731d86d3f6e0178c16e0108e3",
+        "sourceSha256": "0c14f68498b2b0ba9ed19a8b329e7f40ee646955e5abea1d50d72d5747615dcf",
+        "sourceClockOriginSeconds": 0,
+        "sourceCoverage": {
+          "start": 0,
+          "end": 16.400000000000002
+        },
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "technicalStatus": "VERIFIED",
+        "probe": {
+          "width": 1080,
+          "height": 1920,
+          "durationSeconds": 16.6,
+          "fps": 30.0
+        },
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-hwaccel",
+          "none",
+          "-threads",
+          "1",
+          "-i",
+          "/home/chen/work/video-pipeline/local-assets/library/network-media/0c14f68498b2b0ba9ed19a8b329e7f40ee646955e5abea1d50d72d5747615dcf.mp4",
+          "-an",
+          "-vf",
+          "scale=-2:1920,crop=1080:1920:(iw-1080)*0.5:0,setsar=1,fps=30",
+          "-c:v",
+          "libx264",
+          "-preset",
+          "veryfast",
+          "-crf",
+          "19",
+          "-pix_fmt",
+          "yuv420p",
+          "-threads",
+          "2",
+          "/home/chen/work/video-pipeline/orchestrator/output/ai-programming-20261102/prepared-media/pixabay-1046-portrait.mp4"
+        ],
+        "preview": "orchestrator/output/ai-programming-20261102/previews/pixabay-1046-portrait.jpg",
+        "cropPosition": "50.0% 50%",
+        "visibleFace": false
+      }
+    },
+    "publicRights": {
+      "status": "pending",
+      "evidence": [],
+      "verifiedAt": null
+    },
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "integrityIssues": []
+  },
+  "pixabay-79087": {
+    "aliases": [],
+    "catalogEvidence": [],
+    "acquiredAt": "2026-11-02T15:30:41.467684+00:00",
+    "acquisitionBasis": "本期真实网络下载或浏览器录屏/持有人提供，细节见本期sources及acquisitions",
+    "semanticUses": [
+      "horse_running",
+      "direction_metaphor"
+    ],
+    "unsuitableFor": [],
+    "composition": {
+      "cropMode": "cover",
+      "objectPosition": "50% 50%",
+      "overlayRegions": [],
+      "protectedRegions": [],
+      "reviewStatus": "sampled_layout_inspected_not_holder_approved",
+      "visibleFace": false,
+      "evidence": "orchestrator/output/ai-programming-20261102/previews",
+      "preparedMedia": {
+        "assetId": "pixabay-79087",
+        "path": "orchestrator/output/ai-programming-20261102/prepared-media/pixabay-79087-portrait.mp4",
+        "sha256": "7d83f5a410e86350df3952d82c1d3aa86b900d2d334c5280da5e57288484a260",
+        "sourceSha256": "0cb3c835ca21ae5bbb38bae2a8929ac2fc4b02c3dda4cf3441a3cbf504a4d8b4",
+        "sourceClockOriginSeconds": 0,
+        "sourceCoverage": {
+          "start": 0,
+          "end": 8.600000000000001
+        },
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "technicalStatus": "VERIFIED",
+        "probe": {
+          "width": 1080,
+          "height": 1920,
+          "durationSeconds": 8.8,
+          "fps": 30.0
+        },
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-hwaccel",
+          "none",
+          "-threads",
+          "1",
+          "-i",
+          "/home/chen/work/video-pipeline/local-assets/library/network-media/0cb3c835ca21ae5bbb38bae2a8929ac2fc4b02c3dda4cf3441a3cbf504a4d8b4.mp4",
+          "-an",
+          "-vf",
+          "scale=-2:1920,crop=1080:1920:(iw-1080)*0.5:0,setsar=1,fps=30",
+          "-c:v",
+          "libx264",
+          "-preset",
+          "veryfast",
+          "-crf",
+          "19",
+          "-pix_fmt",
+          "yuv420p",
+          "-threads",
+          "2",
+          "/home/chen/work/video-pipeline/orchestrator/output/ai-programming-20261102/prepared-media/pixabay-79087-portrait.mp4"
+        ],
+        "preview": "orchestrator/output/ai-programming-20261102/previews/pixabay-79087-portrait.jpg",
+        "cropPosition": "50.0% 50%",
+        "visibleFace": false
+      }
+    },
+    "publicRights": {
+      "status": "pending",
+      "evidence": [],
+      "verifiedAt": null
+    },
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "integrityIssues": []
+  },
+  "user-huang-ai-20261102": {
+    "aliases": [],
+    "catalogEvidence": [],
+    "acquiredAt": "2026-11-02T15:30:41.584192+00:00",
+    "acquisitionBasis": "本期真实网络下载或浏览器录屏/持有人提供，细节见本期sources及acquisitions",
+    "semanticUses": [
+      "interview",
+      "ai_learning",
+      "user_selected"
+    ],
+    "unsuitableFor": [
+      "本期第9镜不得添加TTS、BGM及第二套字幕；其他用途须另外核对。"
+    ],
+    "composition": {
+      "cropMode": "contain",
+      "objectPosition": "50% 50%",
+      "overlayRegions": [],
+      "protectedRegions": [],
+      "reviewStatus": "sampled_layout_inspected_not_holder_approved",
+      "visibleFace": true,
+      "evidence": "orchestrator/output/ai-programming-20261102/previews",
+      "preparedMedia": {
+        "path": "orchestrator/output/ai-programming-20261102/prepared-media/shot-009-picture.mp4",
+        "sha256": "2840e8bde721e75cb34931ee39bc72d1980888b8f5d8d57c46cb7cea7adbaefc",
+        "sourceSha256": "ecc42a6437e7f907fbe2dd0e6f55567ff502315d91cb851b1fa25a3ae0ebe448",
+        "sourceClockOriginSeconds": 0,
+        "sourceCoverage": {
+          "start": 0,
+          "end": 96.780998
+        },
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "durationSeconds": 96.8,
+        "technicalStatus": "VERIFIED",
+        "visibleFace": true
+      }
+    },
+    "publicRights": {
+      "status": "pending",
+      "evidence": [],
+      "verifiedAt": null
+    },
+    "scope": "news_event",
+    "scopeEpisodeId": "ai-programming-20261102",
+    "integrityIssues": []
+  },
+  "ai-programming-real-editor-20261102": {
+    "aliases": [],
+    "catalogEvidence": [],
+    "acquiredAt": "2026-11-02T15:30:41.760410+00:00",
+    "acquisitionBasis": "本期真实网络下载或浏览器录屏/持有人提供，细节见本期sources及acquisitions",
+    "semanticUses": [
+      "document_editing",
+      "screen_recording",
+      "code_editing",
+      "validation"
+    ],
+    "unsuitableFor": [],
+    "composition": {
+      "cropMode": "contain",
+      "objectPosition": "50% 50%",
+      "overlayRegions": [],
+      "protectedRegions": [],
+      "reviewStatus": "sampled_layout_inspected_not_holder_approved",
+      "visibleFace": false,
+      "evidence": "orchestrator/output/ai-programming-20261102/previews"
+    },
+    "publicRights": {
+      "status": "pending",
+      "evidence": [],
+      "verifiedAt": null
+    },
+    "scope": "general",
+    "scopeEpisodeId": null,
+    "integrityIssues": []
+  },
+  "felix-headline-20261102": {
+    "aliases": [],
+    "catalogEvidence": [],
+    "acquiredAt": "2026-11-02T15:30:41.859381+00:00",
+    "acquisitionBasis": "本期真实网络下载或浏览器录屏/持有人提供，细节见本期sources及acquisitions",
+    "semanticUses": [
+      "news_document",
+      "coding_interview"
+    ],
+    "unsuitableFor": [],
+    "composition": {
+      "cropMode": "contain",
+      "objectPosition": "50% 50%",
+      "overlayRegions": [],
+      "protectedRegions": [],
+      "reviewStatus": "sampled_layout_inspected_not_holder_approved",
+      "visibleFace": false,
+      "evidence": "orchestrator/output/ai-programming-20261102/previews"
+    },
+    "publicRights": {
+      "status": "pending",
+      "evidence": [],
+      "verifiedAt": null
+    },
+    "scope": "news_event",
+    "scopeEpisodeId": "ai-programming-20261102",
+    "integrityIssues": []
+  }
+}

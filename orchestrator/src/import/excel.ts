@@ -80,7 +80,7 @@ function findHeaders(rows: unknown[][]): number[] {
 }
 
 /** Preserve worksheet order and raw text. Empty rows are skipped and reported, never forward-filled. */
-export function parseShotRows(rows: unknown[][], sheetName: string) {
+export function parseShotRows(rows: unknown[][], sheetName: string, options: { externalAudioShotNumbers?: number[] } = {}) {
   const headerRows = findHeaders(rows);
   if (headerRows.length !== 1) throw new Error(
     `工作表「${sheetName}」需且只能有一行完整表头（分镜号、分镜画面、旁白（口播原文）、建议时长），找到 ${headerRows.length} 行`,
@@ -126,7 +126,8 @@ export function parseShotRows(rows: unknown[][], sheetName: string) {
       if (!Number.isSafeInteger(shotNumber)) throw new Error("分镜号超出安全整数范围");
       if (seen.has(shotNumber)) throw new Error(`重复镜头编号 ${shotNumber}（首次在第 ${seen.get(shotNumber)} 行）`);
       seen.set(shotNumber, sourceRow);
-      const narration = text("narration", true)!;
+      const externalAudio = options.externalAudioShotNumbers?.includes(shotNumber) ?? false;
+      const narration = text("narration", !externalAudio) ?? "";
       const visualDescription = text("visualDescription", true)!;
       const rawDuration = get("suggestedDuration");
       const seconds = parseDuration(rawDuration);

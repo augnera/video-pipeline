@@ -136,3 +136,21 @@ npm --prefix orchestrator run test:production
 新闻核查、素材获取/理解/许可、复杂语义多片段安排仍需交互式Codex或人工提供真实证据；参考声线和情绪只沿用批准配置，听感最终由持有人裁定。VP010人工约65分、可以发的结论不消除素材/BGM许可未确认项。
 
 封面本次不自动接入，交付清单明确 `integrated:false`。可以单独制作封面，但不能声称本CLI已经全包。不得自动发布，不启动Wan，不建设独立平台。
+
+## 2026-10-29：本地素材库优先
+
+默认采用“真实素材/真实录屏底层＋Remotion必要叠加”，本地AIGC视频继续STOP，不作为出片依赖。新增集中`production-v1.json.assets`与[素材复用规范](Asset-Library-v1.md)：缺资源交接时，统一CLI先查同一Asset/AssetMatch库，输出真实本地候选及缺口，不再只给空proposal。Director仍负责二次编排及真实录屏/来源核查，不把检索分数当视频理解。
+
+本地检索、入库、许可/审核、使用记录入口与JSON示例见该规范；VideoSeek可选CPU适配及PySceneDetect候选切点的[实测报告](reports/Video-Library-CPU-validation.md)另列。关闭VideoSeek仍可用元数据规则检索；没有自动网络搜库或VLM理解服务，不能宣称全流程无人值守。所有历史视频保持原位，当前未重渲染；封面、发布不接入。
+
+素材获取补充（2026-10-29）：默认`assets.networkConfigRef`接入本地优先/缺口外搜，具体画面词由Director提供，视频源Pixabay/Coverr、图片源Unsplash。筛选、许可、构图检查后显式fetch/ingest，未授权或未知保持候选；不自动大量下载。命令与实测边界见[网络补库报告](reports/Asset-Network-Supplement-v1.md)。
+
+### 2026-11-03：声音克隆切换CPU（持有人授权）
+
+新配音默认`voice.device=cpu`、`voice.precision=fp32`。复用现有IndexTTS2、已验收音色和情绪参考；原GPU服务不启用，GPU/Wan STOP保持。旧已验收配音缓存不重做。
+
+机器路径配置在受忽略`orchestrator/config/production.local.json`的`paths.ttsModelSource`、`ttsModelDirectory`、`ttsServiceDir`、`ttsPython`，或对应`VP_TTS_MODEL_SOURCE`/`VP_TTS_MODEL_DIRECTORY`/既有TTS路径环境变量，不写死进公共配置。新`voice.cpu`集中限制8线程、32GiB采样RSS、3600秒墙钟；默认最少可用40GiB。资源不足/异常终止后不自动换GPU或重试。
+
+统一CLI仍使用原命令：`produce`→`voice-runtime.py`→`cpu-voice.py`→既有CPU直接调用器。请求与独立CPU执行目录进入阶段缓存，完成结果可复用；CPU失败记录需审查，不删除锁重跑。执行设备、精度、CPU参数和CPU源码已纳入配音阶段指纹。短句CPU实际验证通过；本次完整旁白采用直接CPU入口生成，生产CLI的CPU交接通过无模型边界测试，不能把它写成新一期CLI已端到端无人值守出片。
+
+原声插入镜头不合成TTS，其音频、字幕抑制及BGM静音按本期真实时间线单独处理；不能直接把去掉该镜的旁白时钟当成最终成片时钟。没有自动发布或封面接入变化。

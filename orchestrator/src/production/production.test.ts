@@ -25,3 +25,16 @@ import {planProductionRepairs} from './quality.ts';
 test('Low contrast uses one hard-cut repair, preserves picture/caption clocks, and does not reset budget',()=>{const cut={transitionId:'glt:Fade',type:'gl_transition',engine:'gl-transitions',boundaryFrame:60,startFrame:57,durationFrames:6,params:{}};const timeline={fps:30,width:1080,durationInFrames:120,scenes:[{id:'a',from:0,to:60},{id:'b',from:60,to:120}],captions:[],transitions:[cut]};const input={timeline,brief:{transitionPlan:[cut]},rules:{maxAutomaticRepairsPerRule:1,thresholds:{effectVsHardCutMadMinimum:2}}};const checks=[{ruleId:'VQ-03',repairAction:'restore_transitions',automatic:{evidence:{actualEffectVsHardCut:[{sceneBoundary:60,effectVsHardCutMad:.33}]}}}];const r=planProductionRepairs(input,checks);assert.equal((r.timeline.transitions[0] as any).transitionId,'hard_cut');assert.deepEqual(r.timeline.scenes,timeline.scenes);assert.equal(r.timeline.durationInFrames,120);assert.equal(r.entries.length,1);assert.equal(planProductionRepairs(input,checks,r.entries).entries.length,0)});
 import {keywordText} from './visual.ts';
 test('Auto keywords omit explicit decorative badges but retain substantive brand narration and disclosure wording',()=>{assert.equal(keywordText('小陈AI说\n重新检验技能价值\n情景示意'),'重新检验技能价值');assert.equal(keywordText('品牌角标：小陈AI说'),'');assert.equal(keywordText('我在小陈AI说讨论技能价值'),'我在小陈AI说讨论技能价值');assert.equal(keywordText('AI生成画面，需独立披露'),'AI生成画面，需独立披露')});
+
+import {parseShotRows} from '../import/excel.ts';
+test('External-source blank narration is opt-in per shot and never inserted into TTS text',()=>{
+ const rows=[['分镜号','分镜画面','旁白（口播原文）','建议时长'],[1,'实景','原文。',3],[9,'完整原声插入',null,96.78]];
+ assert.throws(()=>parseShotRows(rows,'Sheet'),/旁白/);
+ const p=parseShotRows(rows,'Sheet',{externalAudioShotNumbers:[9]});assert.equal(p.shots.length,2);assert.equal(p.shots[1].narration,'');assert.equal(p.shots.map(s=>s.narration).join(''),'原文。');
+ assert.throws(()=>parseShotRows(rows,'Sheet',{externalAudioShotNumbers:[8]}),/旁白/);
+});
+
+test('Voice execution defaults to CPU/FP32 and cannot silently return to stopped GPU',async(t)=>{
+ const d=await fixture(t),c=await loadConfig();assert.equal(c.voice.device,'cpu');assert.equal(c.voice.precision,'fp32');
+ const f=resolve(d,'gpu-override.json');await save(f,{voice:{device:'cuda:0'}});await assert.rejects(()=>loadConfig(f),/GPU_TTS_STOP/);
+});

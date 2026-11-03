@@ -1,0 +1,9 @@
+{
+  "reviewedAt": null,
+  "incident_baseline_review": {"status": "PENDING", "evidencePath": null, "sha256": null},
+  "post_incident_symptoms": {"status": "PENDING", "evidencePath": null, "sha256": null},
+  "current_device_state": {"status": "PENDING", "evidencePath": null, "sha256": null},
+  "native_host_monitor_ready": {"status": "PENDING", "evidencePath": null, "sha256": null},
+  "other_consumers_review": {"status": "PENDING", "evidencePath": null, "sha256": null},
+  "hardware_power_review": {"status": "PENDING", "evidencePath": null, "sha256": null}
+}

@@ -1,0 +1,114 @@
+{
+  "version": "asset-library/1.0",
+  "indexPath": "local-assets/library/index.json",
+  "catalogs": [
+    "orchestrator/output/day9-vp006-poc/asset-catalog.json",
+    "orchestrator/output/microsoft-veo-skills-20261028-vp010/asset-catalog.json",
+    "orchestrator/output/asset-network-supplement-v1/new-asset-catalog.json",
+    "orchestrator/output/ai-programming-20261102/asset-catalog.json"
+  ],
+  "timelines": [
+    "orchestrator/output/day9-vp007/timeline.json",
+    "orchestrator/output/day9-vp009/timeline.json",
+    "orchestrator/output/microsoft-veo-skills-20261028-vp010/timeline.json"
+  ],
+  "mediaRoots": [
+    "orchestrator/output/day9-vp006-poc/assets",
+    "orchestrator/output/microsoft-veo-skills-20261028-vp010/assets",
+    "orchestrator/output/microsoft-veo-skills-20261028-vp010/recordings",
+    "experiments/gl-transitions-vp008/public",
+    "local-assets/library/network-media"
+  ],
+  "curationRef": "orchestrator/config/asset-library-curation-v1.json",
+  "minSemanticScore": 4,
+  "maxUsesPerEpisode": 2,
+  "recentEpisodeWindow": 3,
+  "recentUsePenalty": 1,
+  "subtitleSafeTop": 1648,
+  "networkPolicy": "gap-driven single candidate; official permitted download only; no automatic bulk fetch",
+  "aigcVideo": "STOP",
+  "conceptTerms": {
+    "office_work": [
+      "office_work",
+      "办公",
+      "工位",
+      "工作场景",
+      "办公室"
+    ],
+    "night_work": [
+      "night_work",
+      "深夜",
+      "熬夜"
+    ],
+    "fatigue": [
+      "fatigue",
+      "疲惫",
+      "揉眼",
+      "摘眼镜",
+      "硬扛"
+    ],
+    "keyboard_work": [
+      "写代码",
+      "键盘",
+      "打字",
+      "typing",
+      "电脑工作",
+      "工具操作"
+    ],
+    "handwriting": [
+      "笔记",
+      "手写",
+      "学习方法",
+      "整理思路",
+      "记录方法"
+    ],
+    "sticky_notes": [
+      "便签",
+      "知识整理"
+    ],
+    "datacenter": [
+      "数据中心",
+      "机房",
+      "服务器",
+      "科技环境"
+    ],
+    "screen_recording": [
+      "录屏",
+      "screen_recording"
+    ],
+    "document_editing": [
+      "报告",
+      "文档",
+      "方案",
+      "需求",
+      "交付",
+      "复盘"
+    ],
+    "code_editing": [
+      "代码",
+      "编程",
+      "code"
+    ],
+    "feature_accumulation": [
+      "功能越做越多",
+      "功能堆叠"
+    ],
+    "microsoft_veo_news": [
+      "微软离职",
+      "自愿离职"
+    ],
+    "annual_report": [
+      "年报",
+      "员工基数"
+    ]
+  },
+  "derivatives": [
+    {
+      "path": "experiments/gl-transitions-vp008/public/vp010/notebook-hands-crop.mp4",
+      "sourceAssetId": "mixkit-42655",
+      "kind": "spatial_crop",
+      "evidenceRef": "experiments/gl-transitions-vp008/src/microsoft-skills.tsx",
+      "basis": "Existing renderer explicitly substitutes this crop for mixkit-42655; original encode command not recorded here; do not treat as new independently licensed source."
+    }
+  ]
+}

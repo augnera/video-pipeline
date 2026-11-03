@@ -1,0 +1,8 @@
+{
+  "source": "https://github.com/anasdallah/stock-media-skill",
+  "commit": "667fd413372f82de908ad1e56046c4e2c86f2546",
+  "installed": false,
+  "file": "scripts/stock_media.py",
+  "sha256": "d7ad7bf4d814ebe835e6fb6a3d4409c8aaedb66d2af5b842d1541ae03395ff25",
+  "modifications": "none; wrapper reuses result normalization only, not bundled key/setup/error printing or automatic retries"
+}

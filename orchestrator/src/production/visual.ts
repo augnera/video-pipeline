@@ -15,6 +15,7 @@ export async function assembleTimeline(script: any, voiced: any, captions: any[]
     }
     else {
         const scenes: any[] = [];
+        const proposals = resources.assetProposal ? (await read(resources.assetProposal)).recommendations ?? [] : [];
         for (let i = 0; i < script.shots.length; i++) {
             const s = script.shots[i], v = voiced.shots[i];
             const from = Math.round(v.voiceover.timelineStartSeconds * 30), to = i + 1 < voiced.shots.length ? Math.round(voiced.shots[i + 1].voiceover.timelineStartSeconds * 30) : Math.ceil(v.voiceover.timelineEndSeconds * 30) + c.video.closingHoldFrames;
@@ -30,6 +31,17 @@ export async function assembleTimeline(script: any, voiced: any, captions: any[]
             if (a.mediaType === 'video' && (start == null || m.segmentEnd - start < duration))
                 throw new Blocked('SOURCE_MARGIN', 'Matched source cannot cover actual voice duration', [s.shotNumber]);
             scenes.push({ id: 'shot-' + s.shotNumber, requestId: 'shot-' + s.shotNumber, shotNumber: s.shotNumber, from, to, kind, visualClass: kind === 'screen_recording' ? 'screen_recording' : kind === 'image_motion' ? 'image_motion' : 'real_stock', assetId: a.assetId, localPath: a.localPath, sha256: a.sha256, sourceType: a.sourceType, sourceStart: start, sourceEnd: start === null ? null : start + duration, crop: { mode: m.cropMode, objectPosition: '50% 50%' }, entry: { type: 'none', durationFrames: 0 }, motion: { scaleFrom: 1, scaleTo: kind === 'image_motion' ? 1.035 : 1, panX: 0, panY: 0 }, transitionPolicy: 'hard_cut', requiresClearReading: kind === 'screen_recording', visualReason: m.matchReason });
+        }
+        for (const scene of scenes) {
+            const p = proposals.find((p:any)=>p.available && p.assetId===scene.assetId && (p.match?.shotNumber===scene.shotNumber || p.requestId===scene.requestId));
+            if (p?.renderPath) {
+                // Prepared media keeps source clock zero. Never retime frozen captions/voice.
+                const raw = assets.find(a=>a.assetId===scene.assetId);
+                if (p.renderSourceClockOriginSeconds !== 0 || !p.renderSourceCoverage || scene.sourceStart < p.renderSourceCoverage.start || scene.sourceEnd > p.renderSourceCoverage.end + 1e-6) throw Error('Prepared proposal cannot cover source clock');
+                if (p.renderDerivedFromSha256 !== raw.sha256) throw Error('Prepared proposal source mismatch');
+                scene.renderPath=p.renderPath; scene.renderSha256=p.renderSha256; scene.renderDerivedFromSha256=p.renderDerivedFromSha256;
+                scene.requiredDisclosures=p.requiredDisclosures ?? [];
+            }
         }
         const durationInFrames = scenes.at(-1).to;
         t = { contractVersion: 'visual-timeline/0.1', mode: 'rules', modelUsed: null, episodeId: script.episodeId, fps: 30, width: 1080, height: 1920, durationInFrames, globalStartSeconds: 0, globalEndSeconds: durationInFrames / 30, scenes, captions, overlays: [], disclosures: [], visualPolicy: await read(c.visual.policyRef) };

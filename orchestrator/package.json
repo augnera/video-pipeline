@@ -11,7 +11,11 @@
     "mvp:visual": "node --import tsx src/visual-mvp/entry.ts",
     "test:visual-mvp": "node --import tsx --test src/visual-mvp/core.test.ts src/visual-mvp/quality.test.ts",
     "produce": "node --import tsx src/production/cli.ts",
-    "test:production": "node --import tsx --test src/production/production.test.ts"
+    "test:production": "node --import tsx --test src/production/production.test.ts",
+    "assets": "python3 src/asset-library/library.py",
+    "test:assets": "python3 -m unittest discover -s src/asset-library -p \"test_*.py\" -v",
+    "assets:videoseek": "python3 src/asset-library/videoseek.py",
+    "assets:web": "python3 src/asset-library/network.py"
   },
   "dependencies": {
     "fluent-ffmpeg": "2.1.3",

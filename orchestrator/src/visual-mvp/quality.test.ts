@@ -58,3 +58,19 @@ test('absent image measurements are NOT_EVALUATED, not PASS',()=>{
 test('missing subtitle cue and invalid audio proof fail without fabricated repairs',()=>{
  const g=fixture();g.timeline.captions.pop();assert.equal(find(g,'VQ-08').automatic.result,'FAIL');assert.equal(find(g,'VQ-08').repairAction,null);g.validation.voiceSliceSampleExact=false;assert.equal(find(g,'VQ-08').repairAction,null);
 });
+
+
+import {validVideoRange} from './quality.ts';
+test('Only SHA-bound prepared video permits one fractional final frame, never extra footage',()=>{
+ const a={durationSeconds:96.780998,sha256:'source'};const s={sourceStart:0,sourceEnd:96.8,from:0,to:2904,renderPath:'prepared.mp4',renderSha256:'a'.repeat(64),renderDerivedFromSha256:'source'};
+ assert.equal(validVideoRange(s,a,30),true);
+ assert.equal(validVideoRange({...s,renderPath:null},a,30),false);
+ assert.equal(validVideoRange({...s,renderDerivedFromSha256:'other'},a,30),false);
+ assert.equal(validVideoRange({...s,to:2910,sourceEnd:97},a,30),false);
+});
+
+test('Empty optional diagram subtitle is not a fabricated off-center text failure',()=>{
+ const g=fixture();g.evidence.layouts[0].secondaryCenterX=0;g.evidence.layouts[0].secondaryLabelPresent=false;
+ assert.equal(find(g,'VQ-04').automatic.result,'PASS');
+ g.evidence.layouts[0].secondaryLabelPresent=true;assert.equal(find(g,'VQ-04').automatic.result,'FAIL');
+});

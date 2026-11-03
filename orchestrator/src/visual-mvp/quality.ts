@@ -6,6 +6,12 @@ export interface GateInputs {timeline:Data;brief:Data;proposal:Data;catalog:Data
 function check(id:string,scenes:string[],result:Result,evidence:unknown,action:string|null,human:string[],manual:string[]=[]):QualityCheck{
  return {ruleId:id,scenes,result:result==='PASS'?'NOT_EVALUATED':result,automatic:{result,evidence},modelAssisted:{result:'NOT_EVALUATED',reason:'No callable multimodal quality endpoint configured; pixel metrics do not certify aesthetics or semantics.'},human:{result:'NOT_EVALUATED',questions:human},repairAction:action,manualReasons:manual};
 }
+/** Bound prepared videos may cover one final fractional frame beyond the original duration. */
+export function validVideoRange(s:Data,a:Data,fps:number){
+ if(!Number.isFinite(s.sourceStart)||!Number.isFinite(s.sourceEnd)||s.sourceStart<0||s.sourceEnd<=s.sourceStart||Math.abs(s.sourceEnd-s.sourceStart-(s.to-s.from)/fps)>.001)return false;
+ if(s.sourceEnd<=a.durationSeconds)return true;
+ return !!s.renderPath && /^[a-f0-9]{64}$/.test(s.renderSha256??'') && s.renderDerivedFromSha256===a.sha256 && s.sourceEnd-a.durationSeconds<=1/fps+1e-6;
+}
 export function evaluateGate(g:GateInputs):QualityCheck[]{
  const {timeline:t,brief,proposal,catalog,validation:v,bgm,evidence:e,rules}=g,q=rules.thresholds;const scenes=t.scenes as Data[];const records:QualityCheck[]=[];
  const stills=scenes.filter(s=>s.kind==='image_motion').map(s=>{const enter=t.transitions.find((x:Data)=>x.boundaryFrame===s.from),exit=t.transitions.find((x:Data)=>x.boundaryFrame===s.to);const seconds=((exit?exit.startFrame+exit.durationFrames:s.to)-(enter?.startFrame??s.from))/t.fps;const motion=s.motion&&((s.motion.scaleTo??1)!==(s.motion.scaleFrom??1)||s.motion.panX||s.motion.panY);return {scene:s.id,assetId:s.assetId,seconds,motion:!!motion,warning:seconds>q.stillWarningSeconds};});
@@ -22,7 +28,7 @@ export function evaluateGate(g:GateInputs):QualityCheck[]{
  const trStatus:Result=configErrors.length||weakPixels.length||damagedCaptions.length?'FAIL':pixelsMissing?'NOT_EVALUATED':'PASS';
  records.push(check('VQ-03',scenes.map(s=>s.id),trStatus,{configErrors,actualEffectVsHardCut:pixels??[],limits:'Pixel difference proves an effect is rendered; exact perceptual type/naturalness remains unevaluated.'},trStatus==='FAIL'?'restore_transitions':null,['正常速度下，甩镜/推镜/滑动遮罩是否明显且自然？','字幕是否始终稳定清晰？'],pixelsMissing?['缺少实际画面控制帧，不能把配置存在当作实际效果通过。']:[]));
  const diagrams=scenes.filter(s=>s.kind==='diagram'),layoutConfigBad=diagrams.filter(s=>(s.layout??'centered')!=='centered');const layouts=e.layouts as Data[]|undefined;
- const layoutBad=layouts?.filter(x=>x.available&&((x.centerAlignmentRequired!==false&&(Math.abs(x.mainCenterX-t.width/2)>q.centerTolerancePx||Math.abs(x.secondaryCenterX-t.width/2)>q.centerTolerancePx))||x.diagramBottomY>=q.subtitleSafeTop||x.clipped));
+ const layoutBad=layouts?.filter(x=>x.available&&((x.centerAlignmentRequired!==false&&(Math.abs(x.mainCenterX-t.width/2)>q.centerTolerancePx||(x.secondaryLabelPresent!==false&&Math.abs(x.secondaryCenterX-t.width/2)>q.centerTolerancePx)))||x.diagramBottomY>=q.subtitleSafeTop||x.clipped));
  const layoutMissing=!layouts||layouts.length<diagrams.length||layouts.some(x=>!x.available);
  const layoutStatus:Result=layoutConfigBad.length||layoutBad?.length?'FAIL':!diagrams.length||layoutMissing?'NOT_EVALUATED':'PASS';
  records.push(check('VQ-04',diagrams.map(s=>s.id),layoutStatus,{resolvedModes:diagrams.map(s=>({scene:s.id,layout:s.layout??'centered'})),actualPixelLayouts:layouts??[],subtitleSafeTop:q.subtitleSafeTop},layoutStatus==='FAIL'?'center_layout':null,['标题、说明、主体和留白是否协调？'],layoutMissing?['无法测量时保留NOT_EVALUATED，不按模板名称推定通过。']:[]));
@@ -41,7 +47,7 @@ export function evaluateGate(g:GateInputs):QualityCheck[]{
   if(a.sha256!==s.sha256||a.localPath!==s.localPath||a.sourceType!==s.sourceType)assetErrors.push(`Identity mismatch ${s.id}`);
   if(a.license?.localExperimentAllowed!==true||!['verified_for_local_experiment','local_experiment_only'].includes(a.licenseStatus)||a.reviewStatus==='rejected')licenseErrors.push(`Not permitted ${s.id}`);
   if((s.kind==='image_motion'&&a.mediaType!=='image')||(s.kind==='live_action'&&a.mediaType!=='video'))assetErrors.push(`Media type mismatch ${s.id}`);
-  if(a.mediaType==='video'&&(!Number.isFinite(s.sourceStart)||!Number.isFinite(s.sourceEnd)||s.sourceStart<0||s.sourceEnd<=s.sourceStart||s.sourceEnd>a.durationSeconds||Math.abs(s.sourceEnd-s.sourceStart-(s.to-s.from)/t.fps)>.001))assetErrors.push(`Invalid range ${s.id}`);
+  if(a.mediaType==='video'&&!validVideoRange(s,a,t.fps))assetErrors.push(`Invalid range ${s.id}`);
  }
  const repeated=Object.entries(uses).filter(([,count])=>count>q.maxSameAssetUses);const assetStatus:Result=assetErrors.length||licenseErrors.length?'FAIL':repeated.length?'WARN':'PASS';
  records.push(check('VQ-07',scenes.map(s=>s.id),assetStatus,{assetErrors,licenseErrors,uses,repeated,indexReviewStatuses:scenes.filter(s=>s.assetId).map(s=>({assetId:s.assetId,status:index.get(s.assetId)?.reviewStatus})),recommendationReasons:proposal.recommendations.map((p:Data)=>({requestId:p.requestId,reason:p.reason}))},repeated.length?'propose_alternatives':null,['每段画面是否贴合旁白？重复素材是否有新的表达用途？'],assetErrors.length||licenseErrors.length?['更换素材、缺口或授权问题不得自动解决。']:[]));

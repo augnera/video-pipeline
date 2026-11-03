@@ -9,7 +9,8 @@
     "endRow": null,
     "metadata": "after_contiguous_numbered_shots",
     "freezeNarration": true,
-    "metadataLabelPattern": "^(来源|.*标题|.*说明|.*规范|.*版本|.*边界|时间与配音|画面事实)"
+    "metadataLabelPattern": "^(来源|.*标题|.*说明|.*规范|.*版本|.*边界|时间与配音|画面事实)",
+    "externalAudioShotNumbers": []
   },
   "video": {
     "width": 1080,
@@ -62,7 +63,15 @@
     "automaticInlineEdits": false,
     "automaticTimeStretch": false,
     "maxAttempts": 1,
-    "maxAudioSeconds": 360
+    "maxAudioSeconds": 360,
+    "device": "cpu",
+    "precision": "fp32",
+    "cpu": {
+      "threads": 8,
+      "maximumRuntimeSeconds": 3600,
+      "maximumResidentGiB": 32,
+      "minimumAvailableGiB": 40
+    }
   },
   "music": {
     "configRef": "orchestrator/config/music.json",
@@ -131,12 +140,30 @@
     "browserExecutable": null,
     "ttsServiceDir": null,
     "ttsPython": null,
-    "python": "python3"
+    "python": "python3",
+    "ttsModelSource": null,
+    "ttsModelDirectory": null
   },
   "cover": {
     "integrated": false,
     "step": "separate_manual_generation"
   },
   "publish": false,
-  "wan": "STOP"
+  "wan": "STOP",
+  "assets": {
+    "libraryConfigRef": "orchestrator/config/asset-library-v1.json",
+    "localFirst": true,
+    "automaticDownload": false,
+    "directorSecondArrangementRequired": true,
+    "networkConfigRef": "orchestrator/config/asset-network-v1.json",
+    "externalGapSearch": true,
+    "externalQueryRequiresDirector": true,
+    "videoProviders": [
+      "pixabay",
+      "coverr"
+    ],
+    "imageProviders": [
+      "unsplash"
+    ]
+  }
 }
